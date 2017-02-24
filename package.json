@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "changelog": "lerna-changelog",
+    "postinstall": "lerna bootstrap",
+    "publish": "lerna publish --exact --skip-git"
+  },
+  "devDependencies": {
+    "lerna": "2.0.0-beta.37",
+    "lerna-changelog": "0.2.3"
+  }
+}
