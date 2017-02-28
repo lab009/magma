@@ -45,9 +45,10 @@ export default function webpackConfigFactory(buildOptions) {
   const ifDevClient = ifElse(isDev && isClient)
   const ifOptimizeClient = ifElse(isOptimize && isClient)
 
-  const configAliasPath = path.resolve(__dirname, '../config')
-  const componentsAliasPath = path.resolve(__dirname, '../components')
-  const aliasCompilePath = [configAliasPath, componentsAliasPath]
+  const configFileName = path.resolve(appRootDir.get(), 'config/values')
+  const configPath = path.resolve(__dirname, '../config')
+  const componentsPath = path.resolve(__dirname, '../components')
+  const compiledPath = [configPath, componentsPath]
 
   output.note(`Creating ${isOptimize ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`)
 
@@ -164,26 +165,19 @@ export default function webpackConfigFactory(buildOptions) {
       // These extensions are tried when resolving a file.
       extensions: config('bundleSrcTypes').map(ext => `.${ext}`),
 
-      alias: mergeDeep(
-        {
-          $config: configAliasPath,
-          $components: componentsAliasPath,
-          '$offline-plugin-runtime': require.resolve('offline-plugin/runtime'),
-        },
-        // For our optimised builds we will alias to the optimised versions
-        // of React and ReactDOM.
-        ifOptimize({
-          react$: path.resolve(
-            appRootDir.get(), './node_modules/react/dist/react.min.js',
-          ),
-          'react-dom$': path.resolve(
-            appRootDir.get(), './node_modules/react-dom/dist/react-dom.min.js',
-          ),
-          'react-dom/server$': path.resolve(
-            appRootDir.get(), './node_modules/react-dom/dist/react-dom-server.min.js',
-          ),
-        }),
-      ),
+      // For our optimised builds we will alias to the optimised versions
+      // of React and ReactDOM.
+      alias: ifOptimize({
+        react$: path.resolve(
+          appRootDir.get(), './node_modules/react/dist/react.min.js',
+        ),
+        'react-dom$': path.resolve(
+          appRootDir.get(), './node_modules/react-dom/dist/react-dom.min.js',
+        ),
+        'react-dom/server$': path.resolve(
+          appRootDir.get(), './node_modules/react-dom/dist/react-dom-server.min.js',
+        ),
+      }),
 
       // Use lookup
       mainFiles: ['index', '.lookup'],
@@ -208,6 +202,8 @@ export default function webpackConfigFactory(buildOptions) {
           {
             whitelist:
               removeNil([
+                // Include all config and component from magma-scripts
+                /^@lab009\/magma-scripts/,
                 // We always want the source-map-support included in
                 // our node target bundles.
                 'source-map-support/register',
@@ -288,6 +284,8 @@ export default function webpackConfigFactory(buildOptions) {
         'process.env.BUILD_FLAG_IS_NODE': JSON.stringify(isNode),
         // Is this a development build?
         'process.env.BUILD_FLAG_IS_DEV': JSON.stringify(isDev),
+        // config filename
+        'process.env.MAGMA_CONFIG_VALUES': JSON.stringify(configFileName),
       }),,
 
       // Generates a JSON file containing a map of all the output files for
@@ -435,7 +433,7 @@ export default function webpackConfigFactory(buildOptions) {
             ...bundleConfig.srcPaths.map(srcPath =>
               path.resolve(appRootDir.get(), srcPath),
             ),
-            ...aliasCompilePath,
+            ...compiledPath,
             ifOptimizeClient(path.resolve(appRootDir.get(), 'src/html')),
           ]),
         },
