@@ -1,3 +1,12 @@
+## v1.0.4 (2017-02-28)
+
+#### :bug: Bug Fix
+* `magma-scripts`
+  * [#10](https://github.com/lab009/magma/pull/10) Fix run babel scripts. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.3 (2017-02-28)
 
 #### :house: Internal
