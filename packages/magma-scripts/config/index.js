@@ -32,7 +32,7 @@ function resolveConfigForBrowserOrServer() {
   // of a webpack run, and will therefore return the config file.
   if (typeof process.env.BUILD_FLAG_IS_NODE === 'undefined' || process.env.BUILD_FLAG_IS_NODE) {
     // i.e. running in our server/node process.
-    configCache = require('config/values').default
+    configCache = require('./values').default
     return configCache
   }
 
