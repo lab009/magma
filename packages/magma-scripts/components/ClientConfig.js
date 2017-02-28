@@ -1,7 +1,8 @@
 import React from 'react'
 import serialize from 'serialize-javascript'
 import filterWithRules from '../utils/objects/filterWithRules'
-import values from 'config/values'
+
+import values from '../config/values'
 
 // Filter the config down to the properties that are allowed to be included
 // in the HTML response.
