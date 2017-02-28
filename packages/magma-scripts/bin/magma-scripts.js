@@ -10,7 +10,7 @@ switch (script) {
   case 'clean':
   case 'start':
     var result = spawn.sync(
-      'node', [require.resolve('./boot'), script].concat(args),
+      'node', ['-r', require.resolve('./register'), require.resolve('../scripts/' + script)].concat(args),
       { stdio: 'inherit' }
     );
     if (result.signal) {
