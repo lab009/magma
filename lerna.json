@@ -4,12 +4,12 @@
   "changelog": {
     "repo": "lab009/magma",
     "labels": {
+      "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",
       "tag: bug fix": ":bug: Bug Fix",
-      "tag: documentation": ":memo: Documentation",
       "tag: enhancement": ":nail_care: Enhancement",
-      "tag: internal": ":house: Internal",
-      "tag: new feature": ":rocket: New Feature"
+      "tag: documentation": ":memo: Documentation",
+      "tag: internal": ":house: Internal"
     },
     "cacheDir": ".changelog"
   }
