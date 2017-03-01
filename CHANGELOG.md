@@ -1,3 +1,12 @@
+## v1.0.5 (2017-03-01)
+
+#### :rocket: New Feature
+* `eslint-config-magma`
+  * [#13](https://github.com/lab009/magma/pull/13) Add env in shared eslint config. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.4 (2017-02-28)
 
 #### :bug: Bug Fix
