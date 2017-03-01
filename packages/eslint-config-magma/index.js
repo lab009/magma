@@ -7,6 +7,13 @@ module.exports = {
     },
   },
 
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+    jest: true,
+  },
+
   extends: require.resolve('eslint-config-airbnb'),
 
   rules: {
