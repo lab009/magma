@@ -51,7 +51,6 @@
     "file-loader": "0.10.1",
     "fs-extra": "2.0.0",
     "glob": "7.1.1",
-    "happypack": "3.0.3",
     "html-webpack-plugin": "2.28.0",
     "md5": "2.2.1",
     "node-notifier": "5.0.2",
