@@ -3,9 +3,9 @@ import appRootDir from 'app-root-dir'
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
+import config from '@lab009/magma-config'
 
 import ClientConfig from '../components/ClientConfig'
-import config from '../config'
 
 export default function withServiceWorker(webpackConfig, bundleConfig) {
   if (!config('serviceWorker.enabled')) {

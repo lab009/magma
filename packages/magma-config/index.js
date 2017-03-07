@@ -71,11 +71,11 @@ function resolveConfigForBrowserOrServer() {
  *   }
  *
  * You could use this function to access "bar" like so:
- *   import config from '../config';
+ *   import config from '@lab009/magma-config';
  *   const value = config('foo.bar');
  *
  * And you could access "bob" like so:
- *   import config from '../config';
+ *   import config from '@lab009/magma-config';
  *   const value = config('bob');
  *
  * If any part of the path isn't available as a configuration key/value then

@@ -13,8 +13,6 @@ import dotenv from 'dotenv'
 import ifElse from '@lab009/magma-utils/logic/ifElse'
 import removeNil from '@lab009/magma-utils/arrays/removeNil'
 
-import output from '../output'
-
 function registerEnvFile() {
   const NODE_ENV = process.env.NODE_ENV
   const envFile = '.env'
@@ -36,7 +34,7 @@ function registerEnvFile() {
 
   // If we found an env file match the register it.
   if (envFilePath) {
-    output.info(`Registering environment variables from: ${envFilePath}`)
+    console.log(`Registering environment variables from: ${envFilePath}`)
     dotenv.config({ path: envFilePath })
   }
 }
@@ -44,8 +42,6 @@ function registerEnvFile() {
 // Ensure that we first register any environment variables from an existing
 // env file.
 registerEnvFile()
-
-// EXPORTED HELPERS
 
 /**
  * Gets a string environment variable by the given name.
@@ -55,7 +51,7 @@ registerEnvFile()
  *
  * @return {String} The value.
  */
-export function string(name, defaultVal) {
+function string(name, defaultVal) {
   return process.env[name] || defaultVal
 }
 
@@ -67,14 +63,22 @@ export function string(name, defaultVal) {
  *
  * @return {number} The value.
  */
-export function number(name, defaultVal) {
+function number(name, defaultVal) {
   return process.env[name]
     ? parseInt(process.env[name], 10)
     : defaultVal
 }
 
-export function bool(name, defaultVal) {
+function bool(name, defaultVal) {
   return process.env[name]
     ? process.env[name] === 'true' || process.env[name] === '1'
     : defaultVal
+}
+
+// EXPORTED HELPERS
+
+export default {
+  string,
+  number,
+  bool,
 }

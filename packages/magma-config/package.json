@@ -1,0 +1,26 @@
+{
+  "name": "@lab009/magma-config",
+  "version": "0.0.1",
+  "description": "Config for Magma.",
+  "repository": "lab009/magma",
+  "bugs": {
+    "url": "https://github.com/lab009/magma/issues"
+  },
+  "author": "Oleg Orlov <mail@orlovoleg.com>",
+  "engines": {
+    "node": ">=6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@lab009/magma-utils": "0.0.1",
+    "app-root-dir": "1.0.2",
+    "dotenv": "4.0.0",
+    "fs-extra": "2.0.0"
+  },
+  "devDependencies": {
+    "@lab009/eslint-config-magma": "3.0.3"
+  }
+}
