@@ -9,10 +9,10 @@ import happyPackPlugin from '@lab009/magma-utils/happypack'
 import ifElse from '@lab009/magma-utils/logic/ifElse'
 import mergeDeep from '@lab009/magma-utils/objects/mergeDeep'
 import removeNil from '@lab009/magma-utils/arrays/removeNil'
+import config from '@lab009/magma-config'
 
 import output from '../output'
 import withServiceWorker from './withServiceWorker'
-import config from '../config'
 
 /**
  * Generates a webpack configuration for the target configuration.
@@ -46,9 +46,6 @@ export default function webpackConfigFactory(buildOptions) {
   const ifOptimizeClient = ifElse(isOptimize && isClient)
 
   const configFileName = path.resolve(appRootDir.get(), 'config/values')
-  const configPath = path.resolve(__dirname, '../config')
-  const componentsPath = path.resolve(__dirname, '../components')
-  const compiledPath = [configPath, componentsPath]
 
   output.note(`Creating ${isOptimize ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`)
 

@@ -1,13 +1,13 @@
 import { resolve as pathResolve } from 'path'
 import webpack from 'webpack'
 import appRootDir from 'app-root-dir'
+import config from '@lab009/magma-config'
 
 import output from '../output'
 import HotNodeServer from './hotNodeServer'
 import HotClientServer from './hotClientServer'
 import createVendorDLL from './createVendorDLL'
 import webpackConfigFactory from '../webpack/configFactory'
-import config from '../config'
 
 const usesDevVendorDLL = bundleConfig =>
   bundleConfig.devVendorDLL != null && bundleConfig.devVendorDLL.enabled

@@ -7,10 +7,10 @@ import { resolve as pathResolve } from 'path'
 import webpack from 'webpack'
 import appRootDir from 'app-root-dir'
 import yargs from 'yargs'
+import config from '@lab009/magma-config'
 
 import webpackConfigFactory from '../webpack/configFactory'
 import output from '../output'
-import config from '../config'
 
 const argv = yargs
   .option('optimize', {

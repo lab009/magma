@@ -3,8 +3,8 @@ import { resolve as pathResolve } from 'path'
 import appRootDir from 'app-root-dir'
 import md5 from 'md5'
 import fs from 'fs-extra'
+import config from '@lab009/magma-config'
 
-import config from '../config'
 import output from '../output'
 
 function createVendorDLL(bundleName, bundleConfig) {
