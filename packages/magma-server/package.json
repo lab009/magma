@@ -1,0 +1,37 @@
+{
+  "name": "@lab009/magma-server",
+  "version": "0.0.1",
+  "description": "Server for Magma.",
+  "repository": "lab009/magma",
+  "bugs": {
+    "url": "https://github.com/lab009/magma/issues"
+  },
+  "author": "Oleg Orlov <mail@orlovoleg.com>",
+  "engines": {
+    "node": ">=6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@lab009/splitter": "^1.0.0",
+    "express": "^4.15.0",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
+    "react-helmet": "^4.0.0",
+    "react-router-dom": "^4.0.0"
+  },
+  "dependencies": {
+    "@lab009/magma-config": "0.0.1",
+    "@lab009/magma-utils": "0.0.1",
+    "app-root-dir": "1.0.2",
+    "helmet": "3.4.1",
+    "hpp": "0.2.1",
+    "serialize-javascript": "1.3.0",
+    "uuid": "3.0.1"
+  },
+  "devDependencies": {
+    "@lab009/eslint-config-magma": "3.0.3"
+  }
+}
