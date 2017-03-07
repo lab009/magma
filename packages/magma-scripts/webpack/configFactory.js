@@ -5,12 +5,12 @@ import nodeExternals from 'webpack-node-externals'
 import path from 'path'
 import webpack from 'webpack'
 import WebpackMd5Hash from 'webpack-md5-hash'
+import happyPackPlugin from '@lab009/magma-utils/happypack'
+import ifElse from '@lab009/magma-utils/logic/ifElse'
+import mergeDeep from '@lab009/magma-utils/objects/mergeDeep'
+import removeNil from '@lab009/magma-utils/arrays/removeNil'
 
 import output from '../output'
-import happyPackPlugin from '../utils/happypack'
-import ifElse from '../utils/logic/ifElse'
-import mergeDeep from '../utils/objects/mergeDeep'
-import removeNil from '../utils/arrays/removeNil'
 import withServiceWorker from './withServiceWorker'
 import config from '../config'
 
@@ -202,8 +202,8 @@ export default function webpackConfigFactory(buildOptions) {
           {
             whitelist:
               removeNil([
-                // Include all config and component from magma-scripts
-                /^@lab009\/magma-scripts/,
+                // Include all config and component from magma
+                /^@lab009\/magma-/,
                 // We always want the source-map-support included in
                 // our node target bundles.
                 'source-map-support/register',
@@ -433,8 +433,8 @@ export default function webpackConfigFactory(buildOptions) {
             ...bundleConfig.srcPaths.map(srcPath =>
               path.resolve(appRootDir.get(), srcPath),
             ),
-            ...compiledPath,
             ifOptimizeClient(path.resolve(appRootDir.get(), 'src/html')),
+            /@lab009\/magma-/,
           ]),
         },
 
