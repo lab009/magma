@@ -12,7 +12,7 @@ import appRootDir from 'app-root-dir'
 import dotenv from 'dotenv'
 
 import output from '../output'
-import onlyIf from '../utils/logic/onlyIf'
+import ifElse from '../utils/logic/ifElse'
 import removeNil from '../utils/arrays/removeNil'
 
 function registerEnvFile() {
@@ -25,7 +25,7 @@ function registerEnvFile() {
     // Is there an environment config file at the app root for our target
     // environment name?
     // e.g. /projects/.env.staging
-    onlyIf(NODE_ENV, path.resolve(appRootDir.get(), `${envFile}.${NODE_ENV}`)),
+    ifElse(NODE_ENV)(path.resolve(appRootDir.get(), `${envFile}.${NODE_ENV}`)),
     // Is there an environment config file at the app root?
     // e.g. /projects/.env
     path.resolve(appRootDir.get(), envFile),
