@@ -1,4 +1,4 @@
-import createReactSSR from './reactApplication'
+import createReactSSR from './reactSSR'
 import security from './security'
 import clientBundle from './clientBundle'
 import serviceWorker from './serviceWorker'
