@@ -1,3 +1,22 @@
+## v1.0.6 (2017-03-07)
+
+#### :rocket: New Feature
+* `magma-server`
+  * [#18](https://github.com/lab009/magma/pull/18) Add magma-server package. ([@Graf009](https://github.com/Graf009))
+* `magma-config`, `magma-scripts`
+  * [#17](https://github.com/lab009/magma/pull/17) Separate magma-config package . ([@Graf009](https://github.com/Graf009))
+* `magma-scripts`, `magma-utils`
+  * [#15](https://github.com/lab009/magma/pull/15) Separate magma-utils package. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* Other
+  * [#16](https://github.com/lab009/magma/pull/16) Update lerna, use yarn for lerna. ([@Graf009](https://github.com/Graf009))
+* `magma-scripts`
+  * [#14](https://github.com/lab009/magma/pull/14) Removes onlyIf and replaces with ifElse helper. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.5 (2017-03-01)
 
 #### :rocket: New Feature

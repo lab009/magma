@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-utils",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Utils for Magma.",
   "repository": "lab009/magma",
   "bugs": {
@@ -19,6 +19,6 @@
     "happypack": "3.0.3"
   },
   "devDependencies": {
-    "@lab009/eslint-config-magma": "3.0.3"
+    "@lab009/eslint-config-magma": "3.0.4"
   }
 }

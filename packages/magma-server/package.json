@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-server",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Server for Magma.",
   "repository": "lab009/magma",
   "bugs": {
@@ -23,8 +23,8 @@
     "react-router-dom": "^4.0.0"
   },
   "dependencies": {
-    "@lab009/magma-config": "0.0.1",
-    "@lab009/magma-utils": "0.0.1",
+    "@lab009/magma-config": "1.0.0",
+    "@lab009/magma-utils": "1.0.0",
     "app-root-dir": "1.0.2",
     "helmet": "3.4.1",
     "hpp": "0.2.1",
@@ -32,6 +32,6 @@
     "uuid": "3.0.1"
   },
   "devDependencies": {
-    "@lab009/eslint-config-magma": "3.0.3"
+    "@lab009/eslint-config-magma": "3.0.4"
   }
 }
