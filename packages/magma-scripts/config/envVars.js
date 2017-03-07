@@ -10,10 +10,10 @@ import fs from 'fs-extra'
 import path from 'path'
 import appRootDir from 'app-root-dir'
 import dotenv from 'dotenv'
+import ifElse from '@lab009/magma-utils/logic/ifElse'
+import removeNil from '@lab009/magma-utils/arrays/removeNil'
 
 import output from '../output'
-import ifElse from '../utils/logic/ifElse'
-import removeNil from '../utils/arrays/removeNil'
 
 function registerEnvFile() {
   const NODE_ENV = process.env.NODE_ENV

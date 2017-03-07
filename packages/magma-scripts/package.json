@@ -32,6 +32,7 @@
     "@lab009/babel-preset-magma": "3.0.2",
     "@lab009/eslint-config-magma": "3.0.3",
     "@lab009/glob-loader": "1.0.0",
+    "@lab009/magma-utils": "0.0.1",
     "app-root-dir": "1.0.2",
     "assets-webpack-plugin": "3.5.1",
     "babel-core": "6.23.1",

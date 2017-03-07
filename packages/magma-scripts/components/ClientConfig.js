@@ -1,6 +1,6 @@
 import React from 'react'
 import serialize from 'serialize-javascript'
-import filterWithRules from '../utils/objects/filterWithRules'
+import filterWithRules from '@lab009/magma-utils/objects/filterWithRules'
 
 import values from '../config/values'
 
