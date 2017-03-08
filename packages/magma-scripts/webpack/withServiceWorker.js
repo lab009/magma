@@ -4,8 +4,7 @@ import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
 import config from '@lab009/magma-config'
-
-import ClientConfig from '../components/ClientConfig'
+import ClientConfig from '@lab009/magma-config/ClientConfig'
 
 export default function withServiceWorker(webpackConfig, bundleConfig) {
   if (!config('serviceWorker.enabled')) {
