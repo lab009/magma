@@ -9,7 +9,7 @@
 import React, { Children, PropTypes } from 'react'
 import serialize from 'serialize-javascript'
 import config from '@lab009/magma-config'
-import ClientConfig from '@lab009/magma-scripts/components/ClientConfig'
+import ClientConfig from '@lab009/magma-config/ClientConfig'
 import ifElse from '@lab009/magma-utils/logic/ifElse'
 import removeNil from '@lab009/magma-utils/arrays/removeNil'
 
