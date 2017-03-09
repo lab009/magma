@@ -34,7 +34,7 @@ function registerEnvFile() {
 
   // If we found an env file match the register it.
   if (envFilePath) {
-    console.log(`Registering environment variables from: ${envFilePath}`)
+    console.log(`==> Registering environment variables from: ${envFilePath}`)
     dotenv.config({ path: envFilePath })
   }
 }
