@@ -1,3 +1,19 @@
+## v1.0.7 (2017-03-09)
+
+#### :rocket: New Feature
+* `magma-scripts`
+  * [#22](https://github.com/lab009/magma/pull/22) Add boilerplate for client code. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `magma-config`, `magma-scripts`, `magma-server`
+  * [#23](https://github.com/lab009/magma/pull/23) Update dependencies. ([@Graf009](https://github.com/Graf009))
+  * [#20](https://github.com/lab009/magma/pull/20) Move ClientConfig to magma-config. ([@Graf009](https://github.com/Graf009))
+* `magma-server`
+  * [#21](https://github.com/lab009/magma/pull/21) Delete reactSSR middleware. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.6 (2017-03-07)
 
 #### :rocket: New Feature
