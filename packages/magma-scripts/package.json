@@ -13,12 +13,10 @@
   "files": [
     ".eslintrc",
     "bin",
-    "components",
-    "config",
+    "client",
     "development",
     "output",
     "scripts",
-    "utils",
     "webpack"
   ],
   "publishConfig": {
