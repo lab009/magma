@@ -4,7 +4,7 @@ import serviceWorker from './serviceWorker'
 import offlinePage from './offlinePage'
 import errorHandlers from './errorHandlers'
 
-export default {
+export {
   security,
   clientBundle,
   serviceWorker,
