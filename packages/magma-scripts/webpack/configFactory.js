@@ -431,7 +431,7 @@ export default function webpackConfigFactory(buildOptions) {
               path.resolve(appRootDir.get(), srcPath),
             ),
             ifOptimizeClient(path.resolve(appRootDir.get(), 'src/html')),
-            /@lab009\/magma-/,
+            /@lab009[\\/]magma-/,
           ]),
         },
 
