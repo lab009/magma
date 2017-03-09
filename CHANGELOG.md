@@ -1,3 +1,14 @@
+## v1.0.9 (2017-03-09)
+
+#### :bug: Bug Fix
+* `magma-scripts`
+  * [#25](https://github.com/lab009/magma/pull/25) Fix js loader include for window. ([@Graf009](https://github.com/Graf009))
+* `magma-server`
+  * [#24](https://github.com/lab009/magma/pull/24) Fix wrong export. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.7 (2017-03-09)
 
 #### :rocket: New Feature

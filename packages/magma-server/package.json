@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Server for Magma.",
   "repository": "lab009/magma",
   "bugs": {
