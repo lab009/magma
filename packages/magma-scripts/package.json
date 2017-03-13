@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-scripts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Configuration and scripts for Magma.",
   "repository": "lab009/magma",
   "bugs": {
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@lab009/babel-preset-magma": "3.0.3",
+    "@lab009/babel-preset-magma": "3.1.0",
     "@lab009/eslint-config-magma": "3.0.4",
     "@lab009/glob-loader": "1.0.0",
     "@lab009/magma-config": "1.0.1",

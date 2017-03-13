@@ -1,3 +1,12 @@
+## v1.0.10 (2017-03-13)
+
+#### :nail_care: Enhancement
+* `babel-preset-magma`
+  * [#26](https://github.com/lab009/magma/pull/26) Delete babel preset latest. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.9 (2017-03-09)
 
 #### :bug: Bug Fix
