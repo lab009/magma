@@ -5,8 +5,8 @@ var path = require('path');
 function preset(context, opts) {
   opts = opts || {};
   var runtime = false;
-  var targets = null;
-  var loose = true;
+  var targets = undefined;
+  var loose = false;
   var modules = false;
   var optimize = true;
   var debug = false;
@@ -84,25 +84,16 @@ function preset(context, opts) {
   }
 
   var presets = [
+    // Latest stable ECMAScript features
+    [
+      require.resolve('babel-preset-env'),
+      {
+        targets: targets, loose: loose, modules: modules, debug: debug, useBuiltIns: true
+      }
+    ],
     // JSX, Flow
     require.resolve('babel-preset-react')
   ];
-
-  if (targets) {
-    presets.push.apply(presets, [
-      [require.resolve('babel-preset-env'), {
-        targets: targets, loose: loose, modules: modules, debug: debug, useBuiltIns: true
-      }]
-    ]);
-  }
-  else {
-    // Latest stable ECMAScript features
-    presets.push.apply(presets, [
-      [require.resolve('babel-preset-latest'), {
-        es2015: {loose: loose, modules: modules}
-      }]
-    ]);
-  }
 
   return {
     presets: presets,
