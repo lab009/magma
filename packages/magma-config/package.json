@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Config for Magma.",
   "repository": "lab009/magma",
   "bugs": {
@@ -15,14 +15,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@lab009/magma-utils": "1.0.0",
+    "@lab009/magma-utils": "1.0.1",
     "app-root-dir": "1.0.2",
     "dotenv": "4.0.0",
     "fs-extra": "2.1.2",
     "serialize-javascript": "1.3.0"
   },
   "devDependencies": {
-    "@lab009/eslint-config-magma": "3.0.4",
+    "@lab009/eslint-config-magma": "3.0.5",
     "eslint": "3.18.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",

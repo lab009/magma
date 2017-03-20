@@ -1,3 +1,16 @@
+## v1.0.11 (2017-03-20)
+
+#### :bug: Bug Fix
+* `magma-scripts`
+  * [#27](https://github.com/lab009/magma/pull/27) Remove react-hot-loader. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `babel-preset-magma`, `eslint-config-magma`, `magma-config`, `magma-scripts`, `magma-server`
+  * [#28](https://github.com/lab009/magma/pull/28) Update dependencies. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.10 (2017-03-13)
 
 #### :nail_care: Enhancement
