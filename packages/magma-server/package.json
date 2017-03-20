@@ -20,16 +20,16 @@
   "dependencies": {
     "@lab009/magma-config": "1.0.1",
     "app-root-dir": "1.0.2",
-    "helmet": "3.4.1",
+    "helmet": "3.5.0",
     "hpp": "0.2.1",
     "uuid": "3.0.1"
   },
   "devDependencies": {
     "@lab009/eslint-config-magma": "3.0.4",
-    "eslint": "3.17.1",
+    "eslint": "3.18.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.10.0",
+    "eslint-plugin-react": "6.10.2",
     "express": "4.15.2"
   }
 }
