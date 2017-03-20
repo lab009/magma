@@ -66,8 +66,6 @@ export default function webpackConfigFactory(buildOptions) {
       // import bundle output files (e.g. `import server from './build/server';`)
       index: removeNil([
         // Required to support hot reloading of our client.
-        ifDevClient(require.resolve('react-hot-loader/patch')),
-        // Required to support hot reloading of our client.
         ifDevClient(() => `${require.resolve('webpack-hot-middleware/client')}?reload=true&path=http://${config('host')}:${config('clientDevServerPort')}/__webpack_hmr`),
         // We are using polyfill.io instead of the very heavy babel-polyfill.
         // Therefore we need to add the regenerator-runtime as polyfill.io
@@ -386,11 +384,6 @@ export default function webpackConfigFactory(buildOptions) {
                 // NOTE: Make sure you use the same node version for development
                 // and production.
                 ifNode([require.resolve('@lab009/babel-preset-magma'), { targets: { node: 'current' }, runtime: true }]),
-              ].filter(x => x != null),
-
-              plugins: [
-                // Required to support react hot loader.
-                ifDevClient(require.resolve('react-hot-loader/babel')),
               ].filter(x => x != null),
             },
             buildOptions,
