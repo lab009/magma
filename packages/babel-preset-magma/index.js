@@ -36,12 +36,7 @@ function preset(context, opts) {
       useBuiltIns: true
     }],
     // Enables parsing of import()
-    require.resolve('babel-plugin-syntax-dynamic-import'),
-    // function* () { yield 42; yield 43; }
-    [require.resolve('babel-plugin-transform-regenerator'), {
-      // Async functions are converted to generators by babel-preset-latest
-      async: false
-    }]
+    require.resolve('babel-plugin-syntax-dynamic-import')
   ];
 
   if (runtime === true) {
