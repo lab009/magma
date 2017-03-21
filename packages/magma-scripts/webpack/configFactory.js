@@ -224,7 +224,7 @@ export default function webpackConfigFactory(buildOptions) {
       // We use the BannerPlugin to make sure all of our chunks will get the
       // source maps support installed.
       ifNode(() => new webpack.BannerPlugin({
-        banner: `require(${JSON.stringify(require.resolve('source-map-support'))}).install();`,
+        banner: 'require("source-map-support/register");',
         raw: true,
         entryOnly: false,
       })),
