@@ -1,3 +1,14 @@
+## v1.0.12 (2017-03-21)
+
+#### :bug: Bug Fix
+* `babel-preset-magma`, `magma-scripts`
+  * [#30](https://github.com/lab009/magma/pull/30) Use preset-env plugin for generator. ([@Graf009](https://github.com/Graf009))
+* `magma-scripts`
+  * [#29](https://github.com/lab009/magma/pull/29) Fix source map for server bundle. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.11 (2017-03-20)
 
 #### :bug: Bug Fix
