@@ -2,16 +2,16 @@
 # yarn lockfile v1
 
 
-"@lab009/eslint-config-magma@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@lab009/eslint-config-magma/-/eslint-config-magma-3.0.4.tgz#554656cb188815c2ced2462d9dde0108ecd779dd"
+"@lab009/eslint-config-magma@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@lab009/eslint-config-magma/-/eslint-config-magma-3.0.5.tgz#26e3f9e7873c57603f6ac848a5aa5fceb95c4244"
   dependencies:
     babel-eslint "7.1.1"
     eslint-config-airbnb "14.1.0"
 
-"@lab009/magma-utils@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@lab009/magma-utils/-/magma-utils-1.0.0.tgz#db4f2a440e40d88696d10983e172cd07c3121dcf"
+"@lab009/magma-utils@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@lab009/magma-utils/-/magma-utils-1.0.1.tgz#af243d0c6c2bb83155b2c6f9459fa55b2c41a7d0"
   dependencies:
     app-root-dir "1.0.2"
     happypack "3.0.3"

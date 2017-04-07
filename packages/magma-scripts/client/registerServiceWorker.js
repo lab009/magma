@@ -10,7 +10,7 @@
 
 import config from '@lab009/magma-config'
 
-if (!process.env.BUILD_FLAG_IS_DEV) {
+if (process.env.BUILD_FLAG_IS_DEV === 'false') {
   // We check the shared config, ensuring that the service worker has been
   // enabled.
   if (config('serviceWorker.enabled')) {
