@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@lab009/eslint-config-magma@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@lab009/eslint-config-magma/-/eslint-config-magma-3.0.4.tgz#554656cb188815c2ced2462d9dde0108ecd779dd"
+"@lab009/eslint-config-magma@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@lab009/eslint-config-magma/-/eslint-config-magma-3.0.5.tgz#26e3f9e7873c57603f6ac848a5aa5fceb95c4244"
   dependencies:
     babel-eslint "7.1.1"
     eslint-config-airbnb "14.1.0"
