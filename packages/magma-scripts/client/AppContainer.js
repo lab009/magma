@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import { Children } from 'react'
 
 // We create this wrapper so that we only import react-hot-loader for a
 // development build.  Small savings. :)

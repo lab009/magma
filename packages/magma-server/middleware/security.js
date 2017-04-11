@@ -1,8 +1,8 @@
-import uuid from 'uuid';
-import hpp from 'hpp';
-import helmet from 'helmet';
+import uuid from 'uuid'
+import hpp from 'hpp'
+import helmet from 'helmet'
 
-import config from '@lab009/magma-config';
+import config from '@lab009/magma-config'
 
 const cspConfig = {
   directives: {
@@ -44,24 +44,24 @@ const cspConfig = {
       'blob:',
     ],
   },
-};
+}
 
 // Add any additional CSP from the static config.
-const cspExtensions = config('cspExtensions');
-Object.keys(cspExtensions).forEach(key => {
+const cspExtensions = config('cspExtensions')
+Object.keys(cspExtensions).forEach((key) => {
   if (cspConfig.directives[key]) {
-    cspConfig.directives[key] = cspConfig.directives[key].concat(cspExtensions[key]);
+    cspConfig.directives[key] = cspConfig.directives[key].concat(cspExtensions[key])
   } else {
-    cspConfig.directives[key] = cspExtensions[key];
+    cspConfig.directives[key] = cspExtensions[key]
   }
-});
+})
 
 if (process.env.BUILD_FLAG_IS_DEV === 'true') {
   // When in development mode we need to add our secondary server that
   // is used to host our client bundle to our csp config.
-  Object.keys(cspConfig.directives).forEach(directive => {
-    cspConfig.directives[directive].push(`${config('host')}:${config('clientDevServerPort')}`);
-  });
+  Object.keys(cspConfig.directives).forEach((directive) => {
+    cspConfig.directives[directive].push(`${config('host')}:${config('clientDevServerPort')}`)
+  })
 }
 
 // Attach a unique "nonce" to every response.  This allows use to declare
@@ -69,8 +69,8 @@ if (process.env.BUILD_FLAG_IS_DEV === 'true') {
 // @see https://helmetjs.github.io/docs/csp/
 function nonceMiddleware(req, res, next) {
   // eslint-disable-next-line no-param-reassign
-  res.locals.nonce = uuid.v4();
-  next();
+  res.locals.nonce = uuid.v4()
+  next()
 }
 
 const securityMiddleware = [
@@ -121,6 +121,6 @@ const securityMiddleware = [
   // not remove it without making a serious consideration that you do not
   // require the added security.
   helmet.contentSecurityPolicy(cspConfig),
-];
+]
 
-export default securityMiddleware;
+export default securityMiddleware
