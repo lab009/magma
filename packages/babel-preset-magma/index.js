@@ -34,9 +34,7 @@ function preset(context, opts) {
     // Transforms JSX
     [require.resolve('babel-plugin-transform-react-jsx'), {
       useBuiltIns: true
-    }],
-    // Enables parsing of import()
-    require.resolve('babel-plugin-syntax-dynamic-import')
+    }]
   ];
 
   if (runtime === true) {
@@ -78,12 +76,24 @@ function preset(context, opts) {
     ]);
   }
 
+  if (targets && targets.node) {
+    // Compiles import() to a deferred require()
+    plugins.push.apply(plugins, [require.resolve('babel-plugin-dynamic-import-node')]);
+  } else {
+    // Enables parsing of import()
+    plugins.push.apply(plugins, [require.resolve('babel-plugin-syntax-dynamic-import')]);
+  }
+
   var presets = [
     // Latest stable ECMAScript features
     [
       require.resolve('babel-preset-env'),
       {
-        targets: targets, loose: loose, modules: modules, debug: debug, useBuiltIns: true
+        targets: targets,
+        loose: loose,
+        modules: modules,
+        debug: debug,
+        useBuiltIns: true
       }
     ],
     // JSX, Flow
