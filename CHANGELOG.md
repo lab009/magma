@@ -1,3 +1,12 @@
+## v1.1.1 (2017-04-12)
+
+#### :bug: Bug Fix
+* `magma-scripts`
+  * [#35](https://github.com/lab009/magma/pull/35) Fix window path in webpack. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.1.0 (2017-04-12)
 
 #### :rocket: New Feature
