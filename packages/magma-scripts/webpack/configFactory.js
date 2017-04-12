@@ -72,10 +72,6 @@ export default function webpackConfigFactory(buildOptions) {
         // Therefore we need to add the regenerator-runtime as polyfill.io
         // doesn't support this.
         ifClient(require.resolve('regenerator-runtime/runtime')),
-        // Extends hot reloading with the ability to hot path React Components.
-        // This should always be at the top of your entries list. Only put
-        // polyfills above it.
-        ifDevClient('react-hot-loader/patch'),
         // Required to support hot reloading of our client.
         ifDevClient(
           () =>
@@ -267,7 +263,7 @@ export default function webpackConfigFactory(buildOptions) {
         // Is this a development build?
         BUILD_FLAG_IS_DEV: JSON.stringify(isDev),
         // config filename
-        MAGMA_CONFIG_VALUES: JSON.stringify(configFileName),
+        MAGMA_CONFIG_VALUES: configFileName,
       }),
 
       // Generates a JSON file containing a map of all the output files for
@@ -397,11 +393,6 @@ export default function webpackConfigFactory(buildOptions) {
                       runtime: true,
                     },
                   ]),
-                ].filter(x => x != null),
-
-                plugins: [
-                  // Required to support react hot loader.
-                  ifDevClient('react-hot-loader/babel'),
                 ].filter(x => x != null),
               },
               buildOptions,
