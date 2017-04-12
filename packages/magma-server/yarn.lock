@@ -848,9 +848,9 @@ hpkp@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/hpkp/-/hpkp-2.0.0.tgz#10e142264e76215a5d30c44ec43de64dee6d1672"
 
-hpp@0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/hpp/-/hpp-0.2.1.tgz#e103d0480397edfd50777be4ad735596286929cd"
+hpp@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/hpp/-/hpp-0.2.2.tgz#0ec5f77472049a74361d85ba2b88e2470a4356f8"
   dependencies:
     lodash "^4.7.0"
     type-is "^1.6.12"
