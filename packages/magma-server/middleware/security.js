@@ -1,6 +1,7 @@
 import uuid from 'uuid'
 import hpp from 'hpp'
 import helmet from 'helmet'
+import connect from 'connect'
 
 import config from '@lab009/magma-config'
 
@@ -73,32 +74,32 @@ function nonceMiddleware(req, res, next) {
   next()
 }
 
-const securityMiddleware = [
+const securityMiddleware = {
   nonceMiddleware,
 
   // Prevent HTTP Parameter pollution.
   // @see http://bit.ly/2f8q7Td
-  hpp(),
+  hpp: hpp(),
 
   // The xssFilter middleware sets the X-XSS-Protection header to prevent
   // reflected XSS attacks.
   // @see https://helmetjs.github.io/docs/xss-filter/
-  helmet.xssFilter(),
+  xssFilter: helmet.xssFilter(),
 
   // Frameguard mitigates clickjacking attacks by setting the X-Frame-Options header.
   // @see https://helmetjs.github.io/docs/frameguard/
-  helmet.frameguard('deny'),
+  frameguard: helmet.frameguard('deny'),
 
   // Sets the X-Download-Options to prevent Internet Explorer from executing
   // downloads in your site’s context.
   // @see https://helmetjs.github.io/docs/ienoopen/
-  helmet.ieNoOpen(),
+  ieNoOpen: helmet.ieNoOpen(),
 
   // Don’t Sniff Mimetype middleware, noSniff, helps prevent browsers from trying
   // to guess (“sniff”) the MIME type, which can have security implications. It
   // does this by setting the X-Content-Type-Options header to nosniff.
   // @see https://helmetjs.github.io/docs/dont-sniff-mimetype/
-  helmet.noSniff(),
+  noSniff: helmet.noSniff(),
 
   // Content Security Policy
   //
@@ -120,7 +121,40 @@ const securityMiddleware = [
   // The CSP configuration is an optional item for helmet, however you should
   // not remove it without making a serious consideration that you do not
   // require the added security.
-  helmet.contentSecurityPolicy(cspConfig),
+  contentSecurityPolicy: helmet.contentSecurityPolicy(cspConfig),
+}
+
+const middlewares = Object.keys(securityMiddleware)
+const defaultMiddleware = [
+  'nonceMiddleware',
+  'hpp',
+  'xssFilter',
+  'frameguard',
+  'ieNoOpen',
+  'noSniff',
+  'contentSecurityPolicy',
 ]
 
-export default securityMiddleware
+function security(options = {}) {
+  const chain = connect()
+
+  middlewares.forEach((middlewareName) => {
+    const middleware = securityMiddleware[middlewareName]
+    const option = options[middlewareName]
+    const isDefault = defaultMiddleware.indexOf(middlewareName) !== -1
+
+    if (option === false) {
+      return
+    }
+
+    if (option === true) {
+      chain.use(middleware)
+    } else if (isDefault) {
+      chain.use(middleware)
+    }
+  })
+
+  return chain
+}
+
+export default security
