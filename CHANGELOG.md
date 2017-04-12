@@ -1,3 +1,22 @@
+## v1.1.0 (2017-04-12)
+
+#### :rocket: New Feature
+* `magma-server`
+  * [#34](https://github.com/lab009/magma/pull/34) Add options for security middleware. ([@Graf009](https://github.com/Graf009))
+* `babel-preset-magma`
+  * [#33](https://github.com/lab009/magma/pull/33) Compiles import() to a deferred require(). ([@Graf009](https://github.com/Graf009))
+
+#### :boom: Breaking Change
+* `magma-config`, `magma-scripts`, `magma-server`
+  * [#31](https://github.com/lab009/magma/pull/31) Removes aliasing of React libs and instead makes NODE_ENV get set to either 'development' or 'production' via the webpack config.. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `babel-preset-magma`, `eslint-config-magma`, `magma-config`, `magma-scripts`, `magma-server`, `magma-utils`
+  * [#32](https://github.com/lab009/magma/pull/32) Update dependencies. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.0.12 (2017-03-21)
 
 #### :bug: Bug Fix
