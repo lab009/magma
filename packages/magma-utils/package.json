@@ -17,8 +17,5 @@
   "dependencies": {
     "app-root-dir": "1.0.2",
     "happypack": "3.0.3"
-  },
-  "devDependencies": {
-    "@lab009/eslint-config-magma": "^3.0.6"
   }
 }
