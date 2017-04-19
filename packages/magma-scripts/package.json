@@ -11,7 +11,6 @@
     "node": ">=6"
   },
   "files": [
-    ".eslintrc",
     "bin",
     "client",
     "development",
@@ -32,7 +31,6 @@
   },
   "dependencies": {
     "@lab009/babel-preset-magma": "^3.3.0",
-    "@lab009/eslint-config-magma": "^3.0.6",
     "@lab009/glob-loader": "1.0.0",
     "@lab009/magma-config": "^1.1.0",
     "@lab009/magma-utils": "^1.0.2",
@@ -44,10 +42,6 @@
     "chokidar": "1.6.1",
     "cross-spawn": "5.1.0",
     "css-loader": "0.28.0",
-    "eslint": "3.19.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.10.3",
     "express": "4.15.2",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.11.1",

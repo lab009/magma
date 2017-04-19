@@ -1,5 +1,3 @@
 import exec from './exec'
 
-export {
-  exec,
-}
+export { exec }

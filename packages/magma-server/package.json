@@ -26,11 +26,6 @@
     "uuid": "3.0.1"
   },
   "devDependencies": {
-    "@lab009/eslint-config-magma": "^3.0.6",
-    "eslint": "3.19.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.10.3",
     "express": "4.15.2"
   }
 }

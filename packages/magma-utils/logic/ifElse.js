@@ -18,7 +18,5 @@ const execIfFunc = x => (typeof x === 'function' ? x() : x)
  */
 
 export default function ifElse(condition) {
-  return (then, or) => (
-    execIfFunc(condition) ? execIfFunc(then) : execIfFunc(or)
-  )
+  return (then, or) => (execIfFunc(condition) ? execIfFunc(then) : execIfFunc(or))
 }

@@ -28,10 +28,7 @@ import withServiceWorker from './withServiceWorker'
  * @return {Object} The webpack configuration.
  */
 export default function webpackConfigFactory(buildOptions) {
-  const {
-    target,
-    optimize = false,
-  } = buildOptions
+  const { target, optimize = false } = buildOptions
 
   const isProd = optimize
   const isDev = !isProd
@@ -197,7 +194,8 @@ export default function webpackConfigFactory(buildOptions) {
               // to be included in the bundling process too.
               .concat(config('nodeExternalsFileTypeWhitelist') || []),
           },
-        )),
+        ),
+      ),
     ]),
 
     plugins: removeNil([
@@ -415,7 +413,8 @@ export default function webpackConfigFactory(buildOptions) {
               },
             },
           ],
-        })),
+        }),
+      ),
 
       // END: HAPPY PACK PLUGINS
       // -----------------------------------------------------------------------

@@ -9,8 +9,7 @@ import HotClientServer from './hotClientServer'
 import createVendorDLL from './createVendorDLL'
 import webpackConfigFactory from '../webpack/configFactory'
 
-const usesDevVendorDLL = bundleConfig =>
-  bundleConfig.devVendorDLL != null && bundleConfig.devVendorDLL.enabled
+const usesDevVendorDLL = bundleConfig => bundleConfig.devVendorDLL != null && bundleConfig.devVendorDLL.enabled
 
 const vendorDLLsFailed = (err) => {
   output.log({
@@ -36,13 +35,7 @@ const initializeBundle = (name, bundleConfig) => {
         // Install the vendor DLL plugin.
         webpackConfig.plugins.push(
           new webpack.DllReferencePlugin({
-            manifest: require(
-              pathResolve(
-                appRootDir.get(),
-                bundleConfig.outputPath,
-                `${bundleConfig.devVendorDLL.name}.json`,
-              ),
-            ),
+            manifest: require(pathResolve(appRootDir.get(), bundleConfig.outputPath, `${bundleConfig.devVendorDLL.name}.json`)),
           }),
         )
       }
@@ -68,52 +61,43 @@ class HotDevelopment {
 
     const clientBundle = initializeBundle('client', config('bundles.client'))
 
-    const nodeBundles = [initializeBundle('server', config('bundles.server'))]
-      .concat(Object.keys(config('additionalNodeBundles')).map(name =>
-        initializeBundle(name, config('additionalNodeBundles')[name]),
-      ))
+    const nodeBundles = [initializeBundle('server', config('bundles.server'))].concat(
+      Object.keys(config('additionalNodeBundles')).map(name => initializeBundle(name, config('additionalNodeBundles')[name])),
+    )
 
     Promise
       // First ensure the client dev vendor DLLs is created if needed.
-      .resolve(
-        usesDevVendorDLL(config('bundles.client'))
-          ? createVendorDLL('client', config('bundles.client'))
-          : true,
-      )
+      .resolve(usesDevVendorDLL(config('bundles.client')) ? createVendorDLL('client', config('bundles.client')) : true)
       // Then start the client development server.
       .then(
-        () => new Promise((resolve) => {
-          const { createCompiler } = clientBundle
-          const compiler = createCompiler()
-          compiler.plugin('done', (stats) => {
-            if (!stats.hasErrors()) {
-              resolve(compiler)
-            }
-          })
-          this.hotClientServer = new HotClientServer(compiler)
-        }),
+        () =>
+          new Promise((resolve) => {
+            const { createCompiler } = clientBundle
+            const compiler = createCompiler()
+            compiler.plugin('done', (stats) => {
+              if (!stats.hasErrors()) {
+                resolve(compiler)
+              }
+            })
+            this.hotClientServer = new HotClientServer(compiler)
+          }),
         vendorDLLsFailed,
       )
       // Then start the node development server(s).
       .then((clientCompiler) => {
-        this.hotNodeServers = nodeBundles
-          .map(({ name, createCompiler }) =>
-            new HotNodeServer(name, createCompiler(), clientCompiler),
-          )
+        this.hotNodeServers = nodeBundles.map(({ name, createCompiler }) => new HotNodeServer(name, createCompiler(), clientCompiler))
       })
   }
 
   dispose() {
-    const safeDisposer = server => (
-      server
-        ? server.dispose()
-        : Promise.resolve()
-    )
+    const safeDisposer = server => (server ? server.dispose() : Promise.resolve())
 
     // First the hot client server.
-    return safeDisposer(this.hotClientServer)
-      // Then dispose the hot node server(s).
-      .then(() => Promise.all(this.hotNodeServers.map(safeDisposer)))
+    return (
+      safeDisposer(this.hotClientServer)
+        // Then dispose the hot node server(s).
+        .then(() => Promise.all(this.hotNodeServers.map(safeDisposer)))
+    )
   }
 }
 
