@@ -8,9 +8,7 @@ let HotDevelopment = require('../development').default
 let devServer = new HotDevelopment()
 
 // Any changes to our config should restart the development devServer.
-const watcher = chokidar.watch([
-  pathResolve(appRootDir.get(), 'config'),
-])
+const watcher = chokidar.watch([pathResolve(appRootDir.get(), 'config')])
 
 watcher.on('ready', () => {
   watcher.on('change', () => {

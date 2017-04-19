@@ -17,20 +17,16 @@ function createVendorDLL(bundleName, bundleConfig) {
   // We calculate a hash of the package.json's dependencies, which we can use
   // to determine if dependencies have changed since the last time we built
   // the vendor dll.
-  const currentDependenciesHash = md5(JSON.stringify(
-    devDLLDependencies.map(dep =>
+  const currentDependenciesHash = md5(
+    JSON.stringify(
       // We do this to include any possible version numbers we may have for
       // a dependency. If these change then our hash should too, which will
       // result in a new dev dll build.
-      [dep, pkg.dependencies[dep], pkg.devDependencies[dep]],
+      devDLLDependencies.map(dep => [dep, pkg.dependencies[dep], pkg.devDependencies[dep]]),
     ),
-  ))
-
-  const vendorDLLHashFilePath = pathResolve(
-    appRootDir.get(),
-    bundleConfig.outputPath,
-    `${dllConfig.name}_hash`,
   )
+
+  const vendorDLLHashFilePath = pathResolve(appRootDir.get(), bundleConfig.outputPath, `${dllConfig.name}_hash`)
 
   function webpackConfigFactory() {
     return {
@@ -46,11 +42,7 @@ function createVendorDLL(bundleName, bundleConfig) {
       },
       plugins: [
         new webpack.DllPlugin({
-          path: pathResolve(
-            appRootDir.get(),
-            bundleConfig.outputPath,
-            `./${dllConfig.name}.json`,
-          ),
+          path: pathResolve(appRootDir.get(), bundleConfig.outputPath, `./${dllConfig.name}.json`),
           name: dllConfig.name,
         }),
       ],
@@ -66,7 +58,7 @@ function createVendorDLL(bundleName, bundleConfig) {
           reject(err)
           return
         }
-          // Update the dependency hash
+        // Update the dependency hash
         fs.writeFileSync(vendorDLLHashFilePath, currentDependenciesHash)
 
         output.log({

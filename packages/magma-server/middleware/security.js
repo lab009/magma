@@ -125,15 +125,7 @@ const securityMiddleware = {
 }
 
 const middlewares = Object.keys(securityMiddleware)
-const defaultMiddleware = [
-  'nonceMiddleware',
-  'hpp',
-  'xssFilter',
-  'frameguard',
-  'ieNoOpen',
-  'noSniff',
-  'contentSecurityPolicy',
-]
+const defaultMiddleware = ['nonceMiddleware', 'hpp', 'xssFilter', 'frameguard', 'ieNoOpen', 'noSniff', 'contentSecurityPolicy']
 
 function security(options = {}) {
   const chain = connect()

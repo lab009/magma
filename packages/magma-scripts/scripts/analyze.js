@@ -24,8 +24,7 @@ const argv = yargs
   })
   .help('h')
   .alias('h', 'help')
-  .strict()
-  .argv
+  .strict().argv
 
 let target
 

@@ -20,11 +20,7 @@ export default function offlinePageMiddleware(req, res, next) {
 
   readFile(
     // Path to the offline page.
-    pathResolve(
-      appRootDir.get(),
-      config('bundles.client.outputPath'),
-      config('serviceWorker.offlinePageFileName'),
-    ),
+    pathResolve(appRootDir.get(), config('bundles.client.outputPath'), config('serviceWorker.offlinePageFileName')),
     // Charset for read
     'utf-8',
     // Read handler
@@ -34,10 +30,7 @@ export default function offlinePageMiddleware(req, res, next) {
         return
       }
       // We replace the placeholder with the actual nonce.
-      const offlinePageWithNonce = data.replace(
-        'OFFLINE_PAGE_NONCE_PLACEHOLDER',
-        nonce,
-      )
+      const offlinePageWithNonce = data.replace('OFFLINE_PAGE_NONCE_PLACEHOLDER', nonce)
       // Send back the page as the response
       res.send(offlinePageWithNonce)
     },

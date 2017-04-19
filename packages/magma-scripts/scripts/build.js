@@ -15,12 +15,11 @@ import output from '../output'
 const argv = yargs
   .option('optimize', {
     describe: 'creating an optimised bundle',
-    type: 'boolean'
+    type: 'boolean',
   })
   .help('h')
   .alias('h', 'help')
-  .strict()
-  .argv
+  .strict().argv
 
 // Print out errors
 function printErrors(level, errors) {
@@ -39,32 +38,30 @@ fs.emptyDirSync(pathResolve(appRootDir.get(), config('buildOutputPath')))
 
 // Get our "fixed" bundle names
 Object.keys(config('bundles'))
-// And the "additional" bundle names
-.concat(Object.keys(config('additionalNodeBundles')))
-// And then build them all.
-.forEach((bundleName) => {
-  webpack(
-    webpackConfigFactory({ target: bundleName, optimize: argv.optimize }),
-  ).run((error, stats) => {
-    if (error) {
-      printErrors('error', [error])
-      process.exit(1)
-    }
+  // And the "additional" bundle names
+  .concat(Object.keys(config('additionalNodeBundles')))
+  // And then build them all.
+  .forEach((bundleName) => {
+    webpack(webpackConfigFactory({ target: bundleName, optimize: argv.optimize })).run((error, stats) => {
+      if (error) {
+        printErrors('error', [error])
+        process.exit(1)
+      }
 
-    if (stats.hasErrors()) {
-      printErrors('error', stats.compilation.errors)
-      process.exit(1)
-    }
+      if (stats.hasErrors()) {
+        printErrors('error', stats.compilation.errors)
+        process.exit(1)
+      }
 
-    if (process.env.CI && stats.hasWarnings()) {
-      printErrors('warning', stats.compilation.warnings)
-      process.exit(1)
-    }
+      if (process.env.CI && stats.hasWarnings()) {
+        printErrors('warning', stats.compilation.warnings)
+        process.exit(1)
+      }
 
-    output.log({
-      level: 'success',
-      title: 'Compiled successfully',
-      message: `Bundle name: "${bundleName}"`,
+      output.log({
+        level: 'success',
+        title: 'Compiled successfully',
+        message: `Bundle name: "${bundleName}"`,
+      })
     })
   })
-})

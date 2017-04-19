@@ -6,12 +6,18 @@ function capitalizeFirstLetter(string) {
 
 function textColor(level) {
   switch (level.toLowerCase()) {
-    case 'success': return 'green'
-    case 'info': return 'blue'
-    case 'note': return 'white'
-    case 'warning': return 'yellow'
-    case 'error': return 'red'
-    default: return 'red'
+    case 'success':
+      return 'green'
+    case 'info':
+      return 'blue'
+    case 'note':
+      return 'white'
+    case 'warning':
+      return 'yellow'
+    case 'error':
+      return 'red'
+    default:
+      return 'red'
   }
 }
 
