@@ -3,10 +3,17 @@
   "scripts": {
     "changelog": "lerna-changelog",
     "postinstall": "lerna bootstrap",
-    "publish": "lerna publish --exact --skip-git"
+    "publish": "lerna publish --exact --skip-git",
+    "format": "prettier-eslint --write \"packages/*/*.js\" \"packages/*/!(node_modules)/**/*.js\""
   },
   "devDependencies": {
-    "lerna": "2.0.0-beta.38",
-    "lerna-changelog": "0.2.3"
+    "@lab009/eslint-config-magma": "3.0.6",
+    "eslint": "3.19.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.10.3",
+    "lerna": "2.0.0-rc.3",
+    "lerna-changelog": "0.4.0",
+    "prettier-eslint-cli": "3.4.0"
   }
 }
