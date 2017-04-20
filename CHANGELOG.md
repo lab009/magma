@@ -1,3 +1,20 @@
+## 1.2.0 (2017-04-20)
+
+#### :rocket: New Feature
+* `magma-scripts`
+  * [#37](https://github.com/lab009/magma/pull/37) Add test script. ([@Graf009](https://github.com/Graf009))
+
+#### :nail_care: Enhancement
+* `babel-preset-magma`, `eslint-config-magma`, `magma-config`, `magma-scripts`, `magma-server`, `magma-utils`
+  * [#36](https://github.com/lab009/magma/pull/36) Add Prettier for format code. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `babel-preset-magma`, `eslint-config-magma`, `magma-scripts`, `magma-server`
+  * [#38](https://github.com/lab009/magma/pull/38) Update dependencies. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## v1.1.1 (2017-04-12)
 
 #### :bug: Bug Fix

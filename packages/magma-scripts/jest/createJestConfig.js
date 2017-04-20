@@ -9,6 +9,7 @@ export default function createJestConfig(resolve, appRootDir) {
   const jestConfig = {
     collectCoverageFrom: ['**/*.{js,jsx}', '!**/(build|dist|public|docs|config|node_modules)/**'],
     setupTestFrameworkScriptFile,
+    modulePaths: ['<rootDir>'],
     testPathIgnorePatterns: ['<rootDir>[/\\\\](build|dist|public|docs|config|node_modules)[/\\\\]'],
     testEnvironment: 'node',
     testURL: 'http://localhost',

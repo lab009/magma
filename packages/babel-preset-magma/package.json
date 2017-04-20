@@ -1,6 +1,6 @@
 {
   "name": "@lab009/babel-preset-magma",
-  "version": "3.3.0",
+  "version": "3.3.2",
   "description": "Babel preset used by magma",
   "repository": "lab009/magma",
   "bugs": {
