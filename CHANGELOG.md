@@ -1,3 +1,12 @@
+## 1.2.1 (2017-04-20)
+
+#### :bug: Bug Fix
+* `magma-scripts`
+  * [#39](https://github.com/lab009/magma/pull/39) Fix package files. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## 1.2.0 (2017-04-20)
 
 #### :rocket: New Feature
