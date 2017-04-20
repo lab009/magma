@@ -78,7 +78,7 @@ function preset(context, opts) {
     //   require.resolve('babel-plugin-transform-react-constant-elements')
     // ]);
     // Remove unnecessary React propTypes from the production build
-    plugins.push.apply(plugins, [require.resolve('babel-plugin-transform-react-remove-prop-types')])
+    plugins.push.apply(plugins, [[require.resolve('babel-plugin-transform-react-remove-prop-types'), { removeImport: true }]])
   }
 
   if (targets && targets.node) {
