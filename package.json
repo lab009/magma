@@ -14,6 +14,6 @@
     "eslint-plugin-react": "6.10.3",
     "lerna": "2.0.0-rc.3",
     "lerna-changelog": "0.4.0",
-    "prettier-eslint-cli": "3.4.0"
+    "prettier-eslint-cli": "3.4.1"
   }
 }
