@@ -167,7 +167,7 @@ export default function webpackConfigFactory(buildOptions) {
 
       // Use lookup
       mainFiles: ['index', '.lookup'],
-      modules: ['node_modules', appRootDir.get()],
+      modules: ['local_modules', 'node_modules', appRootDir.get()],
     },
 
     // We don't want our node_modules to be bundled with any bundle that is

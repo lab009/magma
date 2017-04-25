@@ -7,10 +7,10 @@ const setupTestFrameworkScriptFile = typeof configSetupTestFrameworkScriptFile =
 
 export default function createJestConfig(resolve, appRootDir) {
   const jestConfig = {
-    collectCoverageFrom: ['**/*.{js,jsx}', '!**/(build|dist|public|docs|config|node_modules)/**'],
+    collectCoverageFrom: ['**/*.{js,jsx}', '!**/(build|dist|public|docs|config|node_modules|local_modules)/**'],
     setupTestFrameworkScriptFile,
     modulePaths: ['<rootDir>'],
-    testPathIgnorePatterns: ['<rootDir>[/\\\\](build|dist|public|docs|config|node_modules)[/\\\\]'],
+    testPathIgnorePatterns: ['<rootDir>[/\\\\](build|dist|public|docs|config|node_modules|local_modules)[/\\\\]'],
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
