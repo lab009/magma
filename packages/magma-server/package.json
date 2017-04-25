@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-server",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Server for Magma.",
   "repository": "lab009/magma",
   "bugs": {
@@ -18,7 +18,7 @@
     "express": "^4.15.0"
   },
   "dependencies": {
-    "@lab009/magma-config": "1.1.1",
+    "@lab009/magma-config": "1.1.2",
     "app-root-dir": "1.0.2",
     "connect": "3.6.1",
     "helmet": "3.5.0",

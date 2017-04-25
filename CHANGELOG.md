@@ -1,3 +1,16 @@
+## 1.2.2 (2017-04-25)
+
+#### :rocket: New Feature
+* `magma-scripts`
+  * [#40](https://github.com/lab009/magma/pull/40) Add local_modules feature. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `eslint-config-magma`, `magma-config`, `magma-scripts`, `magma-server`
+  * [#41](https://github.com/lab009/magma/pull/41) Update dependencies. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## 1.2.1 (2017-04-20)
 
 #### :bug: Bug Fix

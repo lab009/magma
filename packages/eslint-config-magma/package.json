@@ -1,6 +1,6 @@
 {
   "name": "@lab009/eslint-config-magma",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "Shared ESLint config by magma",
   "repository": "lab009/magma",
   "bugs": {
