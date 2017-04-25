@@ -28,7 +28,7 @@
     "eslint-plugin-react": "^6.10.3"
   },
   "dependencies": {
-    "babel-eslint": "7.2.2",
+    "babel-eslint": "7.2.3",
     "eslint-config-airbnb": "14.1.0"
   },
   "devDependencies": {

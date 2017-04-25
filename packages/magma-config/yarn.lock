@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@lab009/magma-utils@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@lab009/magma-utils/-/magma-utils-1.0.2.tgz#690722b3bdcd5fa756263fec14b2e407ed475209"
+"@lab009/magma-utils@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@lab009/magma-utils/-/magma-utils-1.0.3.tgz#027d5871ba34815e4514e703316ebd8f3f6d5a35"
   dependencies:
     app-root-dir "1.0.2"
     happypack "3.0.3"
