@@ -8,7 +8,7 @@ import ClientConfig from '@lab009/magma-config/ClientConfig'
 
 export default function withServiceWorker(webpackConfig, bundleConfig) {
   if (!config('serviceWorker.enabled')) {
-    return webpackConfig
+    return
   }
 
   // Offline Page generation.
@@ -18,8 +18,8 @@ export default function withServiceWorker(webpackConfig, bundleConfig) {
   // order support offline rendering of our application.
   // We will only create the service worker required page if enabled in
   // config and if we are building the production version of client.
-  webpackConfig.plugins.push(
-    new HtmlWebpackPlugin({
+  webpackConfig.plugin('html')
+    .use(HtmlWebpackPlugin, [{
       filename: config('serviceWorker.offlinePageFileName'),
       template: config('serviceWorker.offlinePageTemplate'),
       production: true,
@@ -42,8 +42,7 @@ export default function withServiceWorker(webpackConfig, bundleConfig) {
         config,
         ClientConfig,
       },
-    }),
-  )
+    }])
 
   // We use the offline-plugin to generate the service worker.  It also
   // provides a runtime installation script which gets executed within
@@ -62,8 +61,8 @@ export default function withServiceWorker(webpackConfig, bundleConfig) {
   // cache will be updated.
   //
   // We will only include the service worker if enabled in config.
-  webpackConfig.plugins.push(
-    new OfflinePlugin({
+  webpackConfig.plugin('offline')
+    .use(OfflinePlugin, [{
       // Setting this value lets the plugin know where our generated client
       // assets will be served from.
       // e.g. /client/
@@ -123,8 +122,5 @@ export default function withServiceWorker(webpackConfig, bundleConfig) {
             return publicFileWebPaths
           }, []),
         ),
-    }),
-  )
-
-  return webpackConfig
+    }])
 }
