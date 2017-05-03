@@ -477,6 +477,9 @@ export default function webpackConfigFactory(_options) {
           // bundle we only care about the file loader being able to create
           // the correct asset URLs.
           emitFile: isClient,
+          name: isDev
+            ? '[name].[ext]'
+            : '[hash].[ext]',
         })
   }
 
