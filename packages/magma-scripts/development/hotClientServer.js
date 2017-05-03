@@ -2,6 +2,8 @@ import express from 'express'
 import createWebpackMiddleware from 'webpack-dev-middleware'
 import createWebpackHotMiddleware from 'webpack-hot-middleware'
 
+import config from '@lab009/magma-config'
+
 import ListenerManager from './listenerManager'
 import output from '../output'
 
@@ -24,7 +26,7 @@ class HotClientServer {
       quiet: true,
       noInfo: true,
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': `http://${config('host')}:${config('port')}`,
       },
       // Ensure that the public path is taken from the compiler webpack config
       // as it will have been created as an absolute path to avoid conflicts

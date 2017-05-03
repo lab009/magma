@@ -1,0 +1,24 @@
+{
+  "name": "@lab009/magma-preset-scss",
+  "version": "0.0.1",
+  "description": "SCSS preset for Magma.",
+  "repository": "lab009/magma",
+  "bugs": {
+    "url": "https://github.com/lab009/magma/issues"
+  },
+  "author": "Oleg Orlov <mail@orlovoleg.com>",
+  "engines": {
+    "node": ">=6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@lab009/magma-utils": "1.0.3",
+    "css-loader": "0.28.1",
+    "node-sass": "4.5.2",
+    "sass-loader": "6.0.3",
+    "style-loader": "0.17.0"
+  }
+}
