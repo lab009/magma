@@ -1,3 +1,20 @@
+## 1.3.0 (2017-05-04)
+
+#### :rocket: New Feature
+* `magma-preset-scss`, `magma-scripts`, `magma-utils`
+  * [#42](https://github.com/lab009/magma/pull/42) Add chain webpack config feature. ([@Graf009](https://github.com/Graf009))
+
+#### :nail_care: Enhancement
+* `magma-scripts`
+  * [#44](https://github.com/lab009/magma/pull/44) Dev server host always 0.0.0.0, not host config. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `babel-preset-magma`, `eslint-config-magma`, `magma-config`, `magma-scripts`, `magma-server`
+  * [#43](https://github.com/lab009/magma/pull/43) Update dependencies. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## 1.2.2 (2017-04-25)
 
 #### :rocket: New Feature

@@ -3,6 +3,7 @@
   "scripts": {
     "changelog": "lerna-changelog",
     "postinstall": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap",
     "publish": "lerna publish --exact --skip-git",
     "format": "prettier-eslint --write \"packages/*/*.js\" \"packages/*/!(node_modules)/**/*.js\""
   },
