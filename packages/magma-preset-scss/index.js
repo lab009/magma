@@ -5,29 +5,27 @@ export default scssOptions => (webpackConfig, buildOptions) => {
 
   if (isDevClient) {
     // HappyPack 'scss' instance for development client.
-    webpackConfig.plugin('happypack-devclient-scss')
-      .init((Plugin, args) => happyPackPlugin(args))
-      .set('args', {
-        name: 'happypack-devclient-scss',
-        loaders: [
-          require.resolve('style-loader'),
-          {
-            path: require.resolve('css-loader'),
-            // Include sourcemaps for dev experience++.
-            query: {
-              sourceMap: true,
-              importLoaders: 1,
-            },
+    webpackConfig.plugin('happypack-devclient-scss').init((Plugin, args) => happyPackPlugin(args)).set('args', {
+      name: 'happypack-devclient-scss',
+      loaders: [
+        require.resolve('style-loader'),
+        {
+          path: require.resolve('css-loader'),
+          // Include sourcemaps for dev experience++.
+          query: {
+            sourceMap: true,
+            importLoaders: 1,
           },
-          {
-            path: require.resolve('sass-loader'),
-            query: {
-              sourceMap: true,
-              ...scssOptions,
-            },
+        },
+        {
+          path: require.resolve('sass-loader'),
+          query: {
+            sourceMap: true,
+            ...scssOptions,
           },
-        ],
-      })
+        },
+      ],
+    })
   }
 
   // This is bound to our server/client bundles as we only expect to be
@@ -35,7 +33,8 @@ export default scssOptions => (webpackConfig, buildOptions) => {
   // server.
   if (isClient || isServer) {
     // SCSS
-    webpackConfig.module.rule('scss')
+    webpackConfig.module
+      .rule('scss')
       .test(/\.scss$/)
       // For development clients we will defer all our scss processing to the
       // happypack plugin named "happypack-devclient-scss".
@@ -49,30 +48,35 @@ export default scssOptions => (webpackConfig, buildOptions) => {
       // Note: The ExtractTextPlugin needs to be registered within the
       // plugins section too.
       .when(isProdClient, rule =>
-        webpackConfig.plugin('extract').get('plugin').extract({
-          fallback: require.resolve('style-loader'),
-          use: [
-            {
-              loader: require.resolve('css-loader'),
-              options: {
-                importLoaders: 1,
+        webpackConfig
+          .plugin('extract')
+          .get('plugin')
+          .extract({
+            fallback: require.resolve('style-loader'),
+            use: [
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                },
               },
-            },
-            {
-              loader: require.resolve('sass-loader'),
-              options: scssOptions,
-            },
-          ],
-        }).forEach(({ loader, options }) => rule.use(loader).loader(loader).options(options)),
+              {
+                loader: require.resolve('sass-loader'),
+                options: scssOptions,
+              },
+            ],
+          })
+          .forEach(({ loader, options }) => rule.use(loader).loader(loader).options(options)),
       )
       // When targetting the server we use the "/locals" version of the
       // css loader, as we don't need any scss files for the server.
       .when(isNode, rule =>
-        rule.use('css')
+        rule
+          .use('css')
           .loader(require.resolve('css-loader/locals'))
           .options({ importLoaders: 1 })
           .end()
-        .use('scss')
+          .use('scss')
           .loader(require.resolve('sass-loader'))
           .options(scssOptions),
       )
