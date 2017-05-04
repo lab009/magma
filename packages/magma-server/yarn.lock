@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@lab009/magma-config@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@lab009/magma-config/-/magma-config-1.1.1.tgz#bcd035e9122625f5f24c0cbdad620341ad75f321"
+"@lab009/magma-config@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@lab009/magma-config/-/magma-config-1.1.2.tgz#b3f2b111b4063979bad8b5fbf0c4c38804f01c7b"
   dependencies:
     "@lab009/magma-utils" "1.0.3"
     app-root-dir "1.0.2"
