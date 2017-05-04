@@ -37,7 +37,7 @@ class HotClientServer {
     app.use(this.webpackDevMiddleware)
     app.use(createWebpackHotMiddleware(compiler, { log: false }))
 
-    const listener = app.listen(port, host)
+    const listener = app.listen(port)
 
     this.listenerManager = new ListenerManager(listener, 'client')
 
