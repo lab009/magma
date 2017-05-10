@@ -1,6 +1,6 @@
 # @lab009/eslint-config-magma
 
-Shared ESLint config by magma.
+The ESLint configuration for Magma applications.
 
 ## Usage
 
