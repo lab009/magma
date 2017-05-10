@@ -1,3 +1,18 @@
+## 1.3.1 (2017-05-10)
+
+#### :nail_care: Enhancement
+* `eslint-config-magma`
+  * [#46](https://github.com/lab009/magma/pull/46) Change lint rules. ([@Graf009](https://github.com/Graf009))
+* `eslint-config-magma`, `magma-scripts`
+  * [#45](https://github.com/lab009/magma/pull/45) Add color support for stdout. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `babel-preset-magma`, `eslint-config-magma`, `magma-config`, `magma-preset-scss`, `magma-scripts`, `magma-server`
+  * [#47](https://github.com/lab009/magma/pull/47) Update dependencies. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## 1.3.0 (2017-05-04)
 
 #### :rocket: New Feature
