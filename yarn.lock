@@ -2,12 +2,13 @@
 # yarn lockfile v1
 
 
-"@lab009/eslint-config-magma@3.0.8":
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/@lab009/eslint-config-magma/-/eslint-config-magma-3.0.8.tgz#b59fe2fb432322eb32277bae06861274087e3244"
+"@lab009/eslint-config-magma@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@lab009/eslint-config-magma/-/eslint-config-magma-3.1.0.tgz#7b3317cae32ef6e25329e6f938a6e7a671fa311c"
   dependencies:
     babel-eslint "7.2.3"
     eslint-config-airbnb "14.1.0"
+    eslint-config-airbnb-base "11.1.3"
 
 JSONStream@^1.0.4:
   version "1.3.1"
@@ -766,7 +767,7 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@^11.1.0:
+eslint-config-airbnb-base@11.1.3, eslint-config-airbnb-base@^11.1.0:
   version "11.1.3"
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.1.3.tgz#0e8db71514fa36b977fbcf977c01edcf863e0cf0"
 
@@ -1916,9 +1917,9 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
 
-prettier-eslint-cli@3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-3.4.2.tgz#93644ca20acc2ac7098831e98550bb0c0d13abdf"
+prettier-eslint-cli@3.4.3:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-3.4.3.tgz#bf96116f76ae4b938c9ce878997ca9a7a9475504"
   dependencies:
     arrify "^1.0.1"
     babel-runtime "^6.23.0"
