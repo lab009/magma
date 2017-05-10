@@ -42,7 +42,9 @@ Object.keys(config('bundles'))
   .concat(Object.keys(config('additionalNodeBundles')))
   // And then build them all.
   .forEach((bundleName) => {
-    webpack(webpackConfigFactory({ target: bundleName, optimize: argv.optimize })).run((error, stats) => {
+    webpack(
+      webpackConfigFactory({ target: bundleName, optimize: argv.optimize })
+    ).run((error, stats) => {
       if (error) {
         printErrors('error', [error])
         process.exit(1)

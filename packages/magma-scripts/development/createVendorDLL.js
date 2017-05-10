@@ -22,11 +22,15 @@ function createVendorDLL(bundleName, bundleConfig) {
       // We do this to include any possible version numbers we may have for
       // a dependency. If these change then our hash should too, which will
       // result in a new dev dll build.
-      devDLLDependencies.map(dep => [dep, pkg.dependencies[dep], pkg.devDependencies[dep]]),
-    ),
+      devDLLDependencies.map(dep => [dep, pkg.dependencies[dep], pkg.devDependencies[dep]])
+    )
   )
 
-  const vendorDLLHashFilePath = pathResolve(appRootDir.get(), bundleConfig.outputPath, `${dllConfig.name}_hash`)
+  const vendorDLLHashFilePath = pathResolve(
+    appRootDir.get(),
+    bundleConfig.outputPath,
+    `${dllConfig.name}_hash`
+  )
 
   function webpackConfigFactory() {
     return {

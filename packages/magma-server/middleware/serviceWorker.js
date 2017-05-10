@@ -7,7 +7,13 @@ import config from '@lab009/magma-config'
 
 // Middleware to serve our service worker.
 function serviceWorkerMiddleware(req, res, next) {
-  res.sendFile(pathResolve(appRootDir.get(), config('bundles.client.outputPath'), config('serviceWorker.fileName')))
+  res.sendFile(
+    pathResolve(
+      appRootDir.get(),
+      config('bundles.client.outputPath'),
+      config('serviceWorker.fileName')
+    )
+  )
 }
 
 export default serviceWorkerMiddleware

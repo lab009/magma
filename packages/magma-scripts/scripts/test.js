@@ -19,6 +19,11 @@ process.on('unhandledRejection', (err) => {
 const argv = process.argv.slice(2)
 
 // This is not necessary after eject because we embed config into package.json.
-argv.push('--config', JSON.stringify(createJestConfig(relativePath => pathResolve(__dirname, '..', relativePath), appRootDir.get())))
+argv.push(
+  '--config',
+  JSON.stringify(
+    createJestConfig(relativePath => pathResolve(__dirname, '..', relativePath), appRootDir.get())
+  )
+)
 
 jest.run(argv)

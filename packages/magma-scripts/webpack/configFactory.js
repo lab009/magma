@@ -52,7 +52,9 @@ export default function webpackConfigFactory(_options) {
 
   const configFileName = path.resolve(appRootDir.get(), 'config/values')
 
-  output.note(`Creating ${isProd ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`)
+  output.note(
+    `Creating ${isProd ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`
+  )
 
   const bundleConfig = isServer || isClient
     ? // This is either our "server" or "client" bundle.
@@ -72,15 +74,14 @@ export default function webpackConfigFactory(_options) {
     // Required to support hot reloading of our client.
     .when(isDevClient, use =>
       use.add(
-        `${require.resolve('webpack-hot-middleware/client')}?reload=true&path=http://${config('host')}:${config('clientDevServerPort')}/__webpack_hmr`,
-      ),
+        `${require.resolve('webpack-hot-middleware/client')}?reload=true&path=http://${config('host')}:${config('clientDevServerPort')}/__webpack_hmr`
+      )
     )
     // The source entry file for the bundle.
     .add(path.resolve(appRootDir.get(), bundleConfig.srcEntryFile))
     .end()
     // Bundle output configuration.
-    .output// The dir in which our bundle should be output.
-    .path(path.resolve(appRootDir.get(), bundleConfig.outputPath))
+    .output.path(path.resolve(appRootDir.get(), bundleConfig.outputPath)) // The dir in which our bundle should be output.
     // Add /* filename */ comments to generated require()s in the output.
     .when(isDev, use => use.pathinfo(true))
     // The filename format for our bundle's entries.
@@ -96,7 +97,7 @@ export default function webpackConfigFactory(_options) {
       // For any other bundle (typically a server/node) bundle we want a
       // determinable output name to allow for easier importing/execution
       // of the bundle by our scripts.
-      use => use.filename('[name].js'),
+      use => use.filename('[name].js')
     )
     // The name format for any additional chunks produced for the bundle.
     .chunkFilename('[name]-[chunkhash].js')
@@ -106,8 +107,11 @@ export default function webpackConfigFactory(_options) {
     // be considered as being served from.
     .when(
       isDev,
-      use => use.publicPath(`http://${config('host')}:${config('clientDevServerPort')}${config('bundles.client.webPath')}`),
-      use => use.publicPath(bundleConfig.webPath),
+      use =>
+        use.publicPath(
+          `http://${config('host')}:${config('clientDevServerPort')}${config('bundles.client.webPath')}`
+        ),
+      use => use.publicPath(bundleConfig.webPath)
     )
     .end()
     .when(
@@ -115,7 +119,7 @@ export default function webpackConfigFactory(_options) {
       // Only our client bundle will target the web as a runtime.
       use => use.target('web'),
       // Any other bundle must be targetting node as a runtime.
-      use => use.target('node'),
+      use => use.target('node')
     )
     // Ensure that webpack polyfills the following node features for use
     // within any bundles that are targetting node as a runtime. This will be
@@ -137,7 +141,7 @@ export default function webpackConfigFactory(_options) {
       // Produces an external source map (lives next to bundle output files).
       use => use.devtool('source-map'),
       // Produces no source map.
-      use => use.devtool('hidden-source-map'),
+      use => use.devtool('hidden-source-map')
     )
     // Performance budget feature.
     // This enables checking of the output bundle size, which will result in
@@ -148,11 +152,11 @@ export default function webpackConfigFactory(_options) {
     .performance.when(
       isProdClient,
       // Enable webpack's performance hints for production client builds.
-      use => use.hints('warning'),
+      use => use.hints('warning')
     )
     .end()
-    .resolve// These extensions are tried when resolving a file.
-    .extensions.merge(config('bundleSrcTypes').map(ext => `.${ext}`))
+    .resolve.extensions.merge(config('bundleSrcTypes').map(ext => `.${ext // These extensions are tried when resolving a file.
+          }`))
     .end()
     .modules.add('local_modules')
     .add('node_modules')
@@ -185,9 +189,9 @@ export default function webpackConfigFactory(_options) {
               // And any items that have been whitelisted in the config need
               // to be included in the bundling process too.
               .concat(config('nodeExternalsFileTypeWhitelist') || []),
-          },
-        ),
-      ),
+          }
+        )
+      )
     )
 
   // These are process.env flags that you can use in your code in order to
@@ -349,7 +353,7 @@ export default function webpackConfigFactory(_options) {
             query: babelConfig,
           },
         ],
-      }),
+      })
     )
     // For our client bundles we transpile all the latest ratified
     // ES201X code into ES5, safe for browsers.  We exclude module
@@ -365,7 +369,7 @@ export default function webpackConfigFactory(_options) {
           runtime: true,
           optimize: false,
         },
-      ]),
+      ])
     )
     .when(isProdClient, use =>
       use.set('args', [
@@ -373,7 +377,7 @@ export default function webpackConfigFactory(_options) {
         {
           runtime: true,
         },
-      ]),
+      ])
     )
     // Also, we have disabled modules transpilation as webpack will
     // take care of that for us ensuring tree shaking takes place.
@@ -388,7 +392,7 @@ export default function webpackConfigFactory(_options) {
           },
           runtime: true,
         },
-      ]),
+      ])
     )
     // Our "standard" babel config.
     .tap(preset => ({
@@ -406,19 +410,22 @@ export default function webpackConfigFactory(_options) {
 
   if (isDevClient) {
     // HappyPack 'css' instance for development client.
-    webpackConfig.plugin('happypack-devclient-css').init((Plugin, args) => happyPackPlugin(args)).set('args', {
-      name: 'happypack-devclient-css',
-      loaders: [
-        require.resolve('style-loader'),
-        {
-          path: require.resolve('css-loader'),
-          // Include sourcemaps for dev experience++.
-          query: {
-            sourceMap: true,
+    webpackConfig
+      .plugin('happypack-devclient-css')
+      .init((Plugin, args) => happyPackPlugin(args))
+      .set('args', {
+        name: 'happypack-devclient-css',
+        loaders: [
+          require.resolve('style-loader'),
+          {
+            path: require.resolve('css-loader'),
+            // Include sourcemaps for dev experience++.
+            query: {
+              sourceMap: true,
+            },
           },
-        },
-      ],
-    })
+        ],
+      })
   }
 
   // END: HAPPY PACK PLUGINS
@@ -440,7 +447,11 @@ export default function webpackConfigFactory(_options) {
     .loader(`${require.resolve('happypack/loader')}?id=happypack-javascript`)
 
   // LOOKUP
-  webpackConfig.module.rule('lookup').test(/\.lookup$/).use('glob').loader(require.resolve('@lab009/glob-loader'))
+  webpackConfig.module
+    .rule('lookup')
+    .test(/\.lookup$/)
+    .use('glob')
+    .loader(require.resolve('@lab009/glob-loader'))
 
   // This is bound to our server/client bundles as we only expect to be
   // serving the client bundle as a Single Page Application through the
@@ -454,7 +465,9 @@ export default function webpackConfigFactory(_options) {
       // happypack plugin named "happypack-devclient-css".
       // See the respective plugin within the plugins section for full
       // details on what loader is being implemented.
-      .when(isDevClient, rule => rule.use('css').loader(`${require.resolve('happypack/loader')}?id=happypack-devclient-css`))
+      .when(isDevClient, rule =>
+        rule.use('css').loader(`${require.resolve('happypack/loader')}?id=happypack-devclient-css`)
+      )
       // For a production client build we use the ExtractTextPlugin which
       // will extract our CSS into CSS files. We don't use happypack here
       // as there are some edge cases where it fails when used within
@@ -465,7 +478,7 @@ export default function webpackConfigFactory(_options) {
         ExtractTextPlugin.extract({
           fallback: require.resolve('style-loader'),
           use: [require.resolve('css-loader')],
-        }).forEach(({ loader, options }) => rule.use(loader).loader(loader).options(options)),
+        }).forEach(({ loader, options }) => rule.use(loader).loader(loader).options(options))
       )
       // When targetting the server we use the "/locals" version of the
       // css loader, as we don't need any css files for the server.

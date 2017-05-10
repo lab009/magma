@@ -6,7 +6,11 @@ import output from '../output'
 
 class HotNodeServer {
   constructor(name, compiler, clientCompiler) {
-    const compiledEntryFile = path.resolve(appRootDir.get(), compiler.options.output.path, `${Object.keys(compiler.options.entry)[0]}.js`)
+    const compiledEntryFile = path.resolve(
+      appRootDir.get(),
+      compiler.options.output.path,
+      `${Object.keys(compiler.options.entry)[0]}.js`
+    )
 
     const startServer = () => {
       if (this.server) {

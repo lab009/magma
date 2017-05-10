@@ -30,7 +30,10 @@ function resolveConfigForBrowserOrServer() {
   // will be removed when "process.env.BUILD_FLAG_IS_NODE === 'true'".
   // If no "BUILD_FLAG_IS_NODE" env var is undefined we can assume that we are running outside
   // of a webpack run, and will therefore return the config file.
-  if (typeof process.env.BUILD_FLAG_IS_NODE === 'undefined' || process.env.BUILD_FLAG_IS_NODE === 'true') {
+  if (
+    typeof process.env.BUILD_FLAG_IS_NODE === 'undefined' ||
+    process.env.BUILD_FLAG_IS_NODE === 'true'
+  ) {
     // i.e. running in our server/node process.
     configCache = require('./values').default
     return configCache
@@ -86,7 +89,9 @@ export default function configGet(path) {
   const parts = typeof path === 'string' ? path.split('.') : path
 
   if (parts.length === 0) {
-    throw new Error('You must provide the path to the configuration value you would like to consume.')
+    throw new Error(
+      'You must provide the path to the configuration value you would like to consume.'
+    )
   }
   let result = resolveConfigForBrowserOrServer()
   for (let i = 0; i < parts.length; i += 1) {
@@ -95,7 +100,7 @@ export default function configGet(path) {
       // This "if" block gets stripped away by webpack for production builds.
       if (process.env.BUILD_FLAG_IS_DEV === 'true' && process.env.BUILD_FLAG_IS_CLIENT === 'true') {
         throw new Error(
-          `${errorMessage} We have noticed that you are trying to access this configuration value from the client bundle (i.e. code that will be executed in a browser). For configuration values to be exposed to the client bundle you must ensure that the path is added to the client configuration filter in the project configuration values file.`,
+          `${errorMessage} We have noticed that you are trying to access this configuration value from the client bundle (i.e. code that will be executed in a browser). For configuration values to be exposed to the client bundle you must ensure that the path is added to the client configuration filter in the project configuration values file.`
         )
       }
       throw new Error(errorMessage)

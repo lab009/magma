@@ -37,7 +37,7 @@ webpackConfig.plugins.push(
   new BundleAnalyzerPlugin({
     generateStatsFile: true,
     statsFilename: '__analyze__.json',
-  }),
+  })
 )
 
 const clientCompiler = webpack(webpackConfig)
