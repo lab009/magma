@@ -4,10 +4,10 @@
 
 module.exports = {
   parser: require.resolve('babel-eslint'),
-  parserOptions: {
-    ecmaFeatures: {
-      generators: true
-    }
+
+  ecmaFeatures: {
+    defaultParams: true,
+    generators: true
   },
 
   env: {
@@ -24,22 +24,12 @@ module.exports = {
     camelcase: 'off',
     'consistent-return': 'warn',
     'global-require': 'warn',
-    'max-len': [
-      'error',
-      140,
-      2,
-      {
-        ignoreUrls: true,
-        ignoreComments: false,
-        ignoreRegExpLiterals: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true
-      }
-    ],
     'no-underscore-dangle': 'off',
     'no-use-before-define': 'warn',
     semi: ['error', 'never'],
-    'valid-jsdoc': 'error',
+    'valid-jsdoc': 'warn',
+
+    'react/forbid-prop-types': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }]
   }
 };
