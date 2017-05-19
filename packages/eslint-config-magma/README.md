@@ -20,10 +20,4 @@ and React. It requires `eslint`, `eslint-plugin-react`, `eslint-plugin-jsx-a11y`
   install-peerdeps --dev @lab009/eslint-config-magma
   ```
 
-  The cli will produce and run a command like:
-
-  ```sh
-  npm install --save-dev @lab009/eslint-config-magma eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
-  ```
-
 2. add `"extends": "@lab009/eslint-config-magma"` to your .eslintrc
