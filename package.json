@@ -5,17 +5,18 @@
     "postinstall": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",
     "publish": "lerna publish --exact --skip-git",
+    "lint": "eslint \"packages/*/*.js\" \"packages/*/!(node_modules|dist|es)/**/*.js\"",
     "format": "prettier-eslint --write \"packages/*/*.js\" \"packages/*/!(node_modules)/**/*.js\""
   },
   "devDependencies": {
-    "@lab009/eslint-config-magma": "3.1.0",
     "eslint": "3.19.0",
+    "eslint-plugin-flowtype": "2.33.0",
     "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.10.3",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-react": "7.0.1",
     "lerna": "2.0.0-rc.4",
     "lerna-changelog": "0.4.0",
     "prettier": "1.3.1",
-    "prettier-eslint-cli": "3.4.3"
+    "prettier-eslint-cli": "3.6.0"
   }
 }
