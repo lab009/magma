@@ -1,4 +1,4 @@
 {
   "root": true,
-  "extends": "@lab009/eslint-config-magma"
+  "extends": "./packages/eslint-config-magma/index.js"
 }
