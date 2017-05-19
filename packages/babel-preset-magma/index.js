@@ -97,7 +97,7 @@ function preset(context, opts) {
   var presets = [
     // Latest stable ECMAScript features
     [
-      require.resolve('babel-preset-env'),
+      targets && targets.node ? require('babel-preset-env').default : require.resolve('babel-preset-env'),
       {
         targets,
         loose,
