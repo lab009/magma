@@ -1,6 +1,6 @@
 # @lab009/babel-preset-magma
 
-This package includes the Babel preset used by magma
+Babel configuration for Magma projects.
 
 ## Usage
 
