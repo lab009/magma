@@ -1,29 +1,39 @@
 module.exports = {
+  root: true,
+
   parser: require.resolve('babel-eslint'),
 
-  ecmaFeatures: {
-    defaultParams: true,
-    generators: true,
-  },
+  plugins: ['flowtype'],
 
   env: {
     browser: true,
+    commonjs: true,
     es6: true,
-    node: true,
     jest: true,
+    node: true,
+  },
+
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+      generators: true,
+      experimentalObjectRestSpread: true,
+    },
   },
 
   extends: require.resolve('eslint-config-airbnb'),
 
   rules: {
+    // http://eslint.org/docs/rules/
     'no-param-reassign': 'warn',
     camelcase: 'off',
     'consistent-return': 'warn',
     'global-require': 'warn',
     'no-underscore-dangle': 'off',
-    'no-use-before-define': 'warn',
+    'no-use-before-define': ['warn', 'nofunc'],
     semi: ['error', 'never'],
-    'valid-jsdoc': 'warn',
     // Node currently does not support trailing function commas
     'comma-dangle': [
       'error',
@@ -36,7 +46,13 @@ module.exports = {
       },
     ],
 
+    // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/forbid-prop-types': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+
+    // https://github.com/gajus/eslint-plugin-flowtype
+    'flowtype/define-flow-type': 'warn',
+    'flowtype/require-valid-file-annotation': 'warn',
+    'flowtype/use-flow-type': 'warn',
   },
 }
