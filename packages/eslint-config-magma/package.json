@@ -3,7 +3,6 @@
   "version": "3.2.0",
   "description": "The ESLint configuration for Magma applications.",
   "repository": "https://github.com/lab009/magma/tree/master/packages/eslint-config-magma",
-
   "bugs": {
     "url": "https://github.com/lab009/magma/issues"
   },
