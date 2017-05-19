@@ -155,8 +155,12 @@ export default function webpackConfigFactory(_options) {
       use => use.hints('warning')
     )
     .end()
-    .resolve.extensions.merge(config('bundleSrcTypes').map(ext => `.${ext // These extensions are tried when resolving a file.
-          }`))
+    .resolve.extensions.merge(
+      config('bundleSrcTypes').map(
+        // These extensions are tried when resolving a file.
+        ext => `.${ext}`
+      )
+    )
     .end()
     .modules.add('local_modules')
     .add('node_modules')

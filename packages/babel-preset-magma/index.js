@@ -1,5 +1,4 @@
 /* eslint semi: ["error", "always"] */
-/* eslint comma-dangle: ["error", "never"] */
 
 var path = require('path');
 
@@ -32,16 +31,16 @@ function preset(context, opts) {
     [
       require.resolve('babel-plugin-transform-object-rest-spread'),
       {
-        useBuiltIns: true
-      }
+        useBuiltIns: true,
+      },
     ],
     // Transforms JSX
     [
       require.resolve('babel-plugin-transform-react-jsx'),
       {
-        useBuiltIns: true
-      }
-    ]
+        useBuiltIns: true,
+      },
+    ],
   ];
 
   if (runtime === true) {
@@ -54,9 +53,9 @@ function preset(context, opts) {
           polyfill: false,
           regenerator: true,
           // Resolve the Babel runtime relative to the config.
-          moduleName: path.dirname(require.resolve('babel-runtime/package'))
-        }
-      ]
+          moduleName: path.dirname(require.resolve('babel-runtime/package')),
+        },
+      ],
     ]);
   }
 
@@ -67,7 +66,7 @@ function preset(context, opts) {
       // Adds component stack to warning messages
       require.resolve('babel-plugin-transform-react-jsx-source'),
       // Adds __self attribute to JSX which React will use for some warnings
-      require.resolve('babel-plugin-transform-react-jsx-self')
+      require.resolve('babel-plugin-transform-react-jsx-self'),
     ]);
   }
 
@@ -82,7 +81,7 @@ function preset(context, opts) {
     // ]);
     // Remove unnecessary React propTypes from the production build
     plugins.push.apply(plugins, [
-      [require.resolve('babel-plugin-transform-react-remove-prop-types'), { removeImport: true }]
+      [require.resolve('babel-plugin-transform-react-remove-prop-types'), { removeImport: true }],
     ]);
   }
 
@@ -97,22 +96,24 @@ function preset(context, opts) {
   var presets = [
     // Latest stable ECMAScript features
     [
-      targets && targets.node ? require('babel-preset-env').default : require.resolve('babel-preset-env'),
+      targets && targets.node
+        ? require('babel-preset-env').default
+        : require.resolve('babel-preset-env'),
       {
         targets,
         loose,
         modules,
         debug,
-        useBuiltIns: true
-      }
+        useBuiltIns: true,
+      },
     ],
     // JSX, Flow
-    require.resolve('babel-preset-react')
+    require.resolve('babel-preset-react'),
   ];
 
   return {
     presets,
-    plugins
+    plugins,
   };
 }
 
