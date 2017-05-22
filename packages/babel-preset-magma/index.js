@@ -2,23 +2,28 @@
 
 var path = require('path');
 
-function preset(context, opts) {
-  opts = opts || {};
-  var runtime = false;
-  var targets;
-  var loose = false;
-  var modules = false;
-  var optimize = true;
-  var debug = false;
-
-  if (opts !== undefined) {
-    if (opts.runtime !== undefined) runtime = opts.runtime;
-    if (opts.targets !== undefined) targets = opts.targets;
-    if (opts.loose !== undefined) loose = opts.loose;
-    if (opts.modules !== undefined) modules = opts.modules;
-    if (opts.optimize !== undefined) optimize = opts.optimize;
-    if (opts.debug !== undefined) debug = opts.debug;
+function objectWithoutProperties(obj, keys) {
+  var target = {};
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
   }
+  return target;
+}
+
+function preset(context, opts) {
+  var defaultOpts = {
+    runtime: false,
+    loose: false,
+    modules: false,
+    optimize: true,
+    useBuiltIns: true,
+  };
+
+  opts = Object.assign({}, defaultOpts, opts);
+  var envOpts = objectWithoutProperties(opts, ['runtime', 'optimize']);
+  var envPreset;
 
   var plugins = [
     // export * as ns from 'mod'
@@ -43,7 +48,7 @@ function preset(context, opts) {
     ],
   ];
 
-  if (runtime === true) {
+  if (opts.runtime === true) {
     // Polyfills the runtime needed for async/await, generators and helpers
     plugins.push.apply(plugins, [
       [
@@ -59,7 +64,7 @@ function preset(context, opts) {
     ]);
   }
 
-  if (!optimize) {
+  if (!opts.optimize) {
     // The following two plugins are currently necessary to make React warnings
     // include more valuable information.
     plugins.push.apply(plugins, [
@@ -70,7 +75,7 @@ function preset(context, opts) {
     ]);
   }
 
-  if (optimize) {
+  if (opts.optimize) {
     // Optimization: hoist JSX that never changes out of render()
     // Disabled because of issues:
     // * https://phabricator.babeljs.io/search/query/pCNlnC2xzwzx/
@@ -85,28 +90,19 @@ function preset(context, opts) {
     ]);
   }
 
-  if (targets && targets.node) {
+  if (envOpts.targets !== undefined && envOpts.targets.node !== undefined) {
+    envPreset = require('babel-preset-env').default;
     // Compiles import() to a deferred require()
     plugins.push.apply(plugins, [require.resolve('babel-plugin-dynamic-import-node')]);
   } else {
+    envPreset = require.resolve('babel-preset-env');
     // Enables parsing of import()
     plugins.push.apply(plugins, [require.resolve('babel-plugin-syntax-dynamic-import')]);
   }
 
   var presets = [
     // Latest stable ECMAScript features
-    [
-      targets && targets.node
-        ? require('babel-preset-env').default
-        : require.resolve('babel-preset-env'),
-      {
-        targets,
-        loose,
-        modules,
-        debug,
-        useBuiltIns: true,
-      },
-    ],
+    [envPreset, envOpts],
     // JSX, Flow
     require.resolve('babel-preset-react'),
   ];
