@@ -1,8 +1,6 @@
 /* eslint semi: ["error", "always"] */
 /* eslint comma-dangle: ["error", "never"] */
 
-require('@lab009/babel-preset-magma');
-
 require('babel-core/register')({
   presets: [
     [
