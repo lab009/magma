@@ -72,11 +72,15 @@ export default function webpackConfigFactory(_options) {
     // import bundle output files (e.g. `import server from './build/server';`)
     .entry('index')
     // Required to support hot reloading of our client.
-    .when(isDevClient, use =>
+    .when(isDevClient, (use) => {
+      // Extends hot reloading with the ability to hot path React Components.
+      // This should always be at the top of your entries list. Only put
+      // polyfills above it.
+      use.add(require.resolve('react-hot-loader/patch'))
       use.add(
         `${require.resolve('webpack-hot-middleware/client')}?reload=true&path=http://${config('host')}:${config('clientDevServerPort')}/__webpack_hmr`
       )
-    )
+    })
     // The source entry file for the bundle.
     .add(path.resolve(appRootDir.get(), bundleConfig.srcEntryFile))
     .end()
@@ -370,6 +374,8 @@ export default function webpackConfigFactory(_options) {
           targets: {
             browsers: 'last 1 chrome version',
           },
+          // Required to support react hot loader.
+          include: ['transform-es2015-classes'],
           runtime: true,
           optimize: false,
         },
@@ -407,6 +413,16 @@ export default function webpackConfigFactory(_options) {
       babelrc: false,
       presets: [preset],
     }))
+    // Required to support react hot loader.
+    .when(isDevClient, use =>
+      use.tap((babelConfig) => {
+        const { plugins = [], ...other } = babelConfig
+        return {
+          ...other,
+          plugins: [...plugins, require.resolve('react-hot-loader/babel')],
+        }
+      })
+    )
     // We will create a babel config and pass it through the plugin
     // defined in the project configuration, allowing additional
     // items to be added.
