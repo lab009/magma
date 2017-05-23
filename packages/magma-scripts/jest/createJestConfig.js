@@ -1,8 +1,10 @@
 import config from '@lab009/magma-config'
 
-const configSetupTestFrameworkScriptFile = config('setupTestFrameworkScriptFile')
-const setupTestFrameworkScriptFile = typeof configSetupTestFrameworkScriptFile === 'string' &&
-  configSetupTestFrameworkScriptFile !== ''
+const configSetupTestFrameworkScriptFile = config(
+  'setupTestFrameworkScriptFile'
+)
+const setupTestFrameworkScriptFile = typeof configSetupTestFrameworkScriptFile ===
+  'string' && configSetupTestFrameworkScriptFile !== ''
   ? configSetupTestFrameworkScriptFile
   : undefined
 

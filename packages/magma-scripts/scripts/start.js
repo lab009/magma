@@ -12,7 +12,9 @@ const watcher = chokidar.watch([pathResolve(appRootDir.get(), 'config')])
 
 watcher.on('ready', () => {
   watcher.on('change', () => {
-    output.info('Project configuration has changed. Restarting the development devServer...')
+    output.info(
+      'Project configuration has changed. Restarting the development devServer...'
+    )
     devServer.dispose().then(() => {
       // Make sure our new webpack bundleConfigs aren't in the module cache.
       Object.keys(require.cache).forEach((modulePath) => {
@@ -33,4 +35,7 @@ watcher.on('ready', () => {
 })
 
 // If we receive a kill cmd then we will first try to dispose our listeners.
-process.on('SIGTERM', () => devServer && devServer.dispose().then(() => process.exit(0)))
+process.on(
+  'SIGTERM',
+  () => devServer && devServer.dispose().then(() => process.exit(0))
+)

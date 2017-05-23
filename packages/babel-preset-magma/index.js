@@ -1,10 +1,10 @@
 /* eslint semi: ["error", "always"] */
 
-var path = require('path');
+const path = require('path');
 
 function objectWithoutProperties(obj, keys) {
-  var target = {};
-  for (var i in obj) {
+  const target = {};
+  for (const i in obj) {
     if (keys.indexOf(i) >= 0) continue;
     if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
     target[i] = obj[i];
@@ -13,7 +13,7 @@ function objectWithoutProperties(obj, keys) {
 }
 
 function preset(context, opts) {
-  var defaultOpts = {
+  const defaultOpts = {
     runtime: false,
     loose: false,
     modules: false,
@@ -22,10 +22,10 @@ function preset(context, opts) {
   };
 
   opts = Object.assign({}, defaultOpts, opts);
-  var envOpts = objectWithoutProperties(opts, ['runtime', 'optimize']);
-  var envPreset;
+  const envOpts = objectWithoutProperties(opts, ['runtime', 'optimize']);
+  let envPreset;
 
-  var plugins = [
+  const plugins = [
     // export * as ns from 'mod'
     require.resolve('babel-plugin-transform-export-extensions'),
     // class { handleClick = () => { } }
@@ -86,21 +86,28 @@ function preset(context, opts) {
     // ]);
     // Remove unnecessary React propTypes from the production build
     plugins.push.apply(plugins, [
-      [require.resolve('babel-plugin-transform-react-remove-prop-types'), { removeImport: true }],
+      [
+        require.resolve('babel-plugin-transform-react-remove-prop-types'),
+        { removeImport: true },
+      ],
     ]);
   }
 
   if (envOpts.targets !== undefined && envOpts.targets.node !== undefined) {
     envPreset = require('babel-preset-env').default;
     // Compiles import() to a deferred require()
-    plugins.push.apply(plugins, [require.resolve('babel-plugin-dynamic-import-node')]);
+    plugins.push.apply(plugins, [
+      require.resolve('babel-plugin-dynamic-import-node'),
+    ]);
   } else {
     envPreset = require.resolve('babel-preset-env');
     // Enables parsing of import()
-    plugins.push.apply(plugins, [require.resolve('babel-plugin-syntax-dynamic-import')]);
+    plugins.push.apply(plugins, [
+      require.resolve('babel-plugin-syntax-dynamic-import'),
+    ]);
   }
 
-  var presets = [
+  const presets = [
     // Latest stable ECMAScript features
     [envPreset, envOpts],
     // JSX, Flow

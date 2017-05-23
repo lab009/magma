@@ -66,7 +66,9 @@ class HotDevelopment {
 
     const clientBundle = initializeBundle('client', config('bundles.client'))
 
-    const nodeBundles = [initializeBundle('server', config('bundles.server'))].concat(
+    const nodeBundles = [
+      initializeBundle('server', config('bundles.server')),
+    ].concat(
       Object.keys(config('additionalNodeBundles')).map(name =>
         initializeBundle(name, config('additionalNodeBundles')[name])
       )
@@ -97,13 +99,15 @@ class HotDevelopment {
       // Then start the node development server(s).
       .then((clientCompiler) => {
         this.hotNodeServers = nodeBundles.map(
-          ({ name, createCompiler }) => new HotNodeServer(name, createCompiler(), clientCompiler)
+          ({ name, createCompiler }) =>
+            new HotNodeServer(name, createCompiler(), clientCompiler)
         )
       })
   }
 
   dispose() {
-    const safeDisposer = server => (server ? server.dispose() : Promise.resolve())
+    const safeDisposer = server =>
+      server ? server.dispose() : Promise.resolve()
 
     // First the hot client server.
     return (
