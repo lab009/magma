@@ -1,3 +1,28 @@
+## 1.3.2 (2017-05-23)
+
+#### :rocket: New Feature
+* `eslint-config-magma`
+  * [#48](https://github.com/lab009/magma/pull/48) Add flowtype plugin. ([@Graf009](https://github.com/Graf009))
+
+#### :bug: Bug Fix
+* `magma-scripts`
+  * [#53](https://github.com/lab009/magma/pull/53) Add react-hot-loader. ([@Graf009](https://github.com/Graf009))
+* `babel-preset-magma`
+  * [#49](https://github.com/lab009/magma/pull/49) Fix babel generate config for node. ([@Graf009](https://github.com/Graf009))
+
+#### :nail_care: Enhancement
+* `babel-preset-magma`, `magma-scripts`
+  * [#52](https://github.com/lab009/magma/pull/52) Refactor babel preset config. ([@Graf009](https://github.com/Graf009))
+
+#### :house: Internal
+* `babel-preset-magma`, `eslint-config-magma`, `magma-config`, `magma-preset-scss`, `magma-scripts`, `magma-server`
+  * [#51](https://github.com/lab009/magma/pull/51) Update dependencies. ([@Graf009](https://github.com/Graf009))
+* Other
+  * [#50](https://github.com/lab009/magma/pull/50) Use local eslint-config-magma. ([@Graf009](https://github.com/Graf009))
+
+#### Committers: 1
+- Oleg Orlov ([Graf009](https://github.com/Graf009))
+
 ## 1.3.1 (2017-05-10)
 
 #### :nail_care: Enhancement

@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-preset-scss",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "SCSS preset for Magma.",
   "repository": "lab009/magma",
   "bugs": {
@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@lab009/magma-utils": "1.0.5",
+    "@lab009/magma-utils": "1.0.6",
     "css-loader": "0.28.2",
     "node-sass": "4.5.3",
     "sass-loader": "6.0.5",
