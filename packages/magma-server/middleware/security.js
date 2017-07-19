@@ -1,4 +1,4 @@
-import uuid from 'uuid'
+import uuidv4 from 'uuid/v4'
 import hpp from 'hpp'
 import helmet from 'helmet'
 import connect from 'connect'
@@ -74,7 +74,7 @@ if (process.env.BUILD_FLAG_IS_DEV === 'true') {
 // @see https://helmetjs.github.io/docs/csp/
 function nonceMiddleware(req, res, next) {
   // eslint-disable-next-line no-param-reassign
-  res.locals.nonce = uuid.v4()
+  res.locals.nonce = uuidv4()
   next()
 }
 
