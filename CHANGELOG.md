@@ -1,3 +1,7 @@
+## 1.3.3 (2017-07-19)
+* `All`
+  * Update dependencies
+
 ## 1.3.2 (2017-05-23)
 
 #### :rocket: New Feature

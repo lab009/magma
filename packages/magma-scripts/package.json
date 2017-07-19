@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-scripts",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Configuration and scripts for Magma.",
   "repository": "lab009/magma",
   "bugs": {
@@ -31,10 +31,10 @@
     "source-map-support": "0.4.15"
   },
   "dependencies": {
-    "@lab009/babel-preset-magma": "3.4.0",
+    "@lab009/babel-preset-magma": "3.4.1",
     "@lab009/glob-loader": "1.0.0",
-    "@lab009/magma-config": "1.1.5",
-    "@lab009/magma-utils": "1.0.6",
+    "@lab009/magma-config": "1.1.6",
+    "@lab009/magma-utils": "1.0.7",
     "app-root-dir": "1.0.2",
     "assets-webpack-plugin": "3.5.1",
     "babel-core": "6.25.0",
