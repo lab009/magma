@@ -22,10 +22,7 @@ const argv = process.argv.slice(2)
 argv.push(
   '--config',
   JSON.stringify(
-    createJestConfig(
-      relativePath => pathResolve(__dirname, '..', relativePath),
-      appRootDir.get()
-    )
+    createJestConfig(relativePath => pathResolve(__dirname, '..', relativePath), appRootDir.get())
   )
 )
 

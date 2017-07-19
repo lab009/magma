@@ -27,15 +27,11 @@ function registerEnvFile() {
     // Is there an environment config file at the app root for our target
     // environment name?
     // e.g. /projects/.env.staging
-    ifElse(DEPLOYMENT)(
-      path.resolve(appRootDir.get(), `${envFile}.${DEPLOYMENT}`)
-    ),
+    ifElse(DEPLOYMENT)(path.resolve(appRootDir.get(), `${envFile}.${DEPLOYMENT}`)),
   ])
 
   // Find the first env file path match.
-  const envFilePath = envFileResolutionOrder.find(filePath =>
-    fs.existsSync(filePath)
-  )
+  const envFilePath = envFileResolutionOrder.find(filePath => fs.existsSync(filePath))
 
   // If we found an env file match the register it.
   if (envFilePath) {
@@ -73,9 +69,7 @@ function number(name, defaultVal) {
 }
 
 function bool(name, defaultVal) {
-  return process.env[name]
-    ? process.env[name] === 'true' || process.env[name] === '1'
-    : defaultVal
+  return process.env[name] ? process.env[name] === 'true' || process.env[name] === '1' : defaultVal
 }
 
 // EXPORTED HELPERS

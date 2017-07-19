@@ -56,11 +56,12 @@ export default function webpackConfigFactory(_options) {
     `Creating ${isProd ? 'an optimised' : 'a development'} bundle configuration for the "${target}"`
   )
 
-  const bundleConfig = isServer || isClient
-    ? // This is either our "server" or "client" bundle.
-      config(['bundles', target])
-    : // Otherwise it must be an additional node bundle.
-      config(['additionalNodeBundles', target])
+  const bundleConfig =
+    isServer || isClient
+      ? // This is either our "server" or "client" bundle.
+        config(['bundles', target])
+      : // Otherwise it must be an additional node bundle.
+        config(['additionalNodeBundles', target])
 
   if (!bundleConfig) {
     throw new Error('No bundle configuration exists for target:', target)
@@ -78,7 +79,9 @@ export default function webpackConfigFactory(_options) {
       // polyfills above it.
       use.add(require.resolve('react-hot-loader/patch'))
       use.add(
-        `${require.resolve('webpack-hot-middleware/client')}?reload=true&path=http://${config('host')}:${config('clientDevServerPort')}/__webpack_hmr`
+        `${require.resolve('webpack-hot-middleware/client')}?reload=true&path=http://${config(
+          'host'
+        )}:${config('clientDevServerPort')}/__webpack_hmr`
       )
     })
     // The source entry file for the bundle.
@@ -106,18 +109,16 @@ export default function webpackConfigFactory(_options) {
     // The name format for any additional chunks produced for the bundle.
     .chunkFilename('[name]-[chunkhash].js')
     // When in node mode we will output our bundle as a commonjs2 module.
-    .when(
-      isNode,
-      use => use.libraryTarget('commonjs2'),
-      use => use.libraryTarget('var')
-    )
+    .when(isNode, use => use.libraryTarget('commonjs2'), use => use.libraryTarget('var'))
     // This is the web path under which our webpack bundled client should
     // be considered as being served from.
     .when(
       isDev,
       use =>
         use.publicPath(
-          `http://${config('host')}:${config('clientDevServerPort')}${config('bundles.client.webPath')}`
+          `http://${config('host')}:${config('clientDevServerPort')}${config(
+            'bundles.client.webPath'
+          )}`
         ),
       use => use.publicPath(bundleConfig.webPath)
     )
@@ -430,9 +431,7 @@ export default function webpackConfigFactory(_options) {
     // We will create a babel config and pass it through the plugin
     // defined in the project configuration, allowing additional
     // items to be added.
-    .tap(babelConfig =>
-      config('plugins.babelConfig')(babelConfig, buildOptions)
-    )
+    .tap(babelConfig => config('plugins.babelConfig')(babelConfig, buildOptions))
 
   if (isDevClient) {
     // HappyPack 'css' instance for development client.
@@ -463,11 +462,7 @@ export default function webpackConfigFactory(_options) {
     .test(/\.jsx?$/)
     .include.add(/local_modules/)
     .add(/magma-[\w-]+[/\\\\](?!node_modules)/)
-    .merge(
-      bundleConfig.srcPaths.map(srcPath =>
-        path.resolve(appRootDir.get(), srcPath)
-      )
-    )
+    .merge(bundleConfig.srcPaths.map(srcPath => path.resolve(appRootDir.get(), srcPath)))
     .end()
     // We will defer all our js processing to the happypack plugin
     // named "happypack-javascript".
@@ -496,11 +491,7 @@ export default function webpackConfigFactory(_options) {
       // See the respective plugin within the plugins section for full
       // details on what loader is being implemented.
       .when(isDevClient, rule =>
-        rule
-          .use('css')
-          .loader(
-            `${require.resolve('happypack/loader')}?id=happypack-devclient-css`
-          )
+        rule.use('css').loader(`${require.resolve('happypack/loader')}?id=happypack-devclient-css`)
       )
       // For a production client build we use the ExtractTextPlugin which
       // will extract our CSS into CSS files. We don't use happypack here
@@ -512,15 +503,11 @@ export default function webpackConfigFactory(_options) {
         ExtractTextPlugin.extract({
           fallback: require.resolve('style-loader'),
           use: [require.resolve('css-loader')],
-        }).forEach(({ loader, options }) =>
-          rule.use(loader).loader(loader).options(options)
-        )
+        }).forEach(({ loader, options }) => rule.use(loader).loader(loader).options(options))
       )
       // When targetting the server we use the "/locals" version of the
       // css loader, as we don't need any css files for the server.
-      .when(isNode, rule =>
-        rule.use('css').loader(require.resolve('css-loader/locals'))
-      )
+      .when(isNode, rule => rule.use('css').loader(require.resolve('css-loader/locals')))
 
     // ASSETS (Images/Fonts/etc)
     webpackConfig.module
@@ -536,7 +523,9 @@ export default function webpackConfigFactory(_options) {
         publicPath: isDev
           ? // When running in dev mode the client bundle runs on a
             // seperate port so we need to put an absolute path here.
-            `http://${config('host')}:${config('clientDevServerPort')}${config('bundles.client.webPath')}`
+            `http://${config('host')}:${config('clientDevServerPort')}${config(
+              'bundles.client.webPath'
+            )}`
           : // Otherwise we just use the configured web path for the client.
             config('bundles.client.webPath'),
         // We only emit files when building a web bundle, for the server

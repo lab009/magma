@@ -72,9 +72,7 @@ class HotClientServer {
   dispose() {
     this.webpackDevMiddleware.close()
 
-    return this.listenerManager
-      ? this.listenerManager.dispose()
-      : Promise.resolve()
+    return this.listenerManager ? this.listenerManager.dispose() : Promise.resolve()
   }
 }
 

@@ -86,25 +86,18 @@ function preset(context, opts) {
     // ]);
     // Remove unnecessary React propTypes from the production build
     plugins.push.apply(plugins, [
-      [
-        require.resolve('babel-plugin-transform-react-remove-prop-types'),
-        { removeImport: true },
-      ],
+      [require.resolve('babel-plugin-transform-react-remove-prop-types'), { removeImport: true }],
     ]);
   }
 
   if (envOpts.targets !== undefined && envOpts.targets.node !== undefined) {
     envPreset = require('babel-preset-env').default;
     // Compiles import() to a deferred require()
-    plugins.push.apply(plugins, [
-      require.resolve('babel-plugin-dynamic-import-node'),
-    ]);
+    plugins.push.apply(plugins, [require.resolve('babel-plugin-dynamic-import-node')]);
   } else {
     envPreset = require.resolve('babel-preset-env');
     // Enables parsing of import()
-    plugins.push.apply(plugins, [
-      require.resolve('babel-plugin-syntax-dynamic-import'),
-    ]);
+    plugins.push.apply(plugins, [require.resolve('babel-plugin-syntax-dynamic-import')]);
   }
 
   const presets = [

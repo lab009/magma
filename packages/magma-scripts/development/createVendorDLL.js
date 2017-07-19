@@ -22,11 +22,7 @@ function createVendorDLL(bundleName, bundleConfig) {
       // We do this to include any possible version numbers we may have for
       // a dependency. If these change then our hash should too, which will
       // result in a new dev dll build.
-      devDLLDependencies.map(dep => [
-        dep,
-        pkg.dependencies[dep],
-        pkg.devDependencies[dep],
-      ])
+      devDLLDependencies.map(dep => [dep, pkg.dependencies[dep], pkg.devDependencies[dep]])
     )
   )
 
@@ -50,11 +46,7 @@ function createVendorDLL(bundleName, bundleConfig) {
       },
       plugins: [
         new webpack.DllPlugin({
-          path: pathResolve(
-            appRootDir.get(),
-            bundleConfig.outputPath,
-            `./${dllConfig.name}.json`
-          ),
+          path: pathResolve(appRootDir.get(), bundleConfig.outputPath, `./${dllConfig.name}.json`),
           name: dllConfig.name,
         }),
       ],
@@ -76,7 +68,9 @@ function createVendorDLL(bundleName, bundleConfig) {
         output.log({
           level: 'info',
           title: 'vendorDLL',
-          message: `Vendor DLL build complete. The following dependencies have been included:\n\t-${devDLLDependencies.join('\n\t-')}\n`,
+          message: `Vendor DLL build complete. The following dependencies have been included:\n\t-${devDLLDependencies.join(
+            '\n\t-'
+          )}\n`,
         })
 
         resolve()

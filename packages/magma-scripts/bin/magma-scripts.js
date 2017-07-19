@@ -15,11 +15,7 @@ switch (script) {
   case 'test':
     var result = spawn.sync(
       'node',
-      [
-        '-r',
-        require.resolve('./register'),
-        require.resolve(`../scripts/${script}`)
-      ].concat(args),
+      ['-r', require.resolve('./register'), require.resolve(`../scripts/${script}`)].concat(args),
       {
         stdio: 'inherit'
       }

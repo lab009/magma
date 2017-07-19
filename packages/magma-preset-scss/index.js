@@ -1,13 +1,7 @@
 import happyPackPlugin from '@lab009/magma-utils/happypack'
 
 export default scssOptions => (webpackConfig, buildOptions) => {
-  const {
-    isClient,
-    isServer,
-    isDevClient,
-    isProdClient,
-    isNode,
-  } = buildOptions
+  const { isClient, isServer, isDevClient, isProdClient, isNode } = buildOptions
 
   if (isDevClient) {
     // HappyPack 'scss' instance for development client.
@@ -52,9 +46,7 @@ export default scssOptions => (webpackConfig, buildOptions) => {
       .when(isDevClient, rule =>
         rule
           .use('scss')
-          .loader(
-            `${require.resolve('happypack/loader')}?id=happypack-devclient-scss`
-          )
+          .loader(`${require.resolve('happypack/loader')}?id=happypack-devclient-scss`)
       )
       // For a production client build we use the ExtractTextPlugin which
       // will extract our CSS into CSS files. We don't use happypack here
@@ -81,9 +73,7 @@ export default scssOptions => (webpackConfig, buildOptions) => {
               },
             ],
           })
-          .forEach(({ loader, options }) =>
-            rule.use(loader).loader(loader).options(options)
-          )
+          .forEach(({ loader, options }) => rule.use(loader).loader(loader).options(options))
       )
       // When targetting the server we use the "/locals" version of the
       // css loader, as we don't need any scss files for the server.

@@ -5,8 +5,9 @@ import React from 'react'
 
 // We create this wrapper so that we only import react-hot-loader for a
 // development build.  Small savings. :)
-const AppContainer = process.env.NODE_ENV === 'development'
-  ? require('react-hot-loader').AppContainer
-  : ({ children }) => React.Children.only(children)
+const AppContainer =
+  process.env.NODE_ENV === 'development'
+    ? require('react-hot-loader').AppContainer
+    : ({ children }) => React.Children.only(children)
 
 export default AppContainer
