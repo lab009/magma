@@ -18,7 +18,7 @@
     "@lab009/magma-utils": "1.0.7",
     "app-root-dir": "1.0.2",
     "dotenv": "4.0.0",
-    "fs-extra": "4.0.0",
+    "fs-extra": "4.0.1",
     "serialize-javascript": "1.4.0"
   },
   "devDependencies": {

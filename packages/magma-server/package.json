@@ -20,12 +20,12 @@
   "dependencies": {
     "@lab009/magma-config": "1.1.6",
     "app-root-dir": "1.0.2",
-    "connect": "3.6.2",
-    "helmet": "3.6.1",
+    "connect": "3.6.3",
+    "helmet": "3.8.1",
     "hpp": "0.2.2",
     "uuid": "3.1.0"
   },
   "devDependencies": {
-    "express": "4.15.3"
+    "express": "4.15.4"
   }
 }
