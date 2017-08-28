@@ -1,3 +1,7 @@
+## 1.3.4 (2017-08-28)
+* `All`
+  * Update dependencies
+
 ## 1.3.3 (2017-07-19)
 * `All`
   * Update dependencies

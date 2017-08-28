@@ -1,6 +1,6 @@
 {
   "name": "@lab009/babel-preset-magma",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "description": "Babel configuration for Magma projects.",
   "repository": "https://github.com/lab009/magma/tree/master/packages/babel-preset-magma",
   "bugs": {

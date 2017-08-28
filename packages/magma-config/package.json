@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-config",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Config for Magma.",
   "repository": "lab009/magma",
   "bugs": {
