@@ -19,7 +19,7 @@ const cspConfig = {
       // need the following:
       // 'data:',
     ],
-    fontSrc: ["'self'"],
+    fontSrc: ["'self'", 'data:'],
     objectSrc: ["'self'"],
     mediaSrc: ["'self'"],
     manifestSrc: ["'self'"],
