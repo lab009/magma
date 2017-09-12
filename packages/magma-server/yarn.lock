@@ -2,14 +2,14 @@
 # yarn lockfile v1
 
 
-"@lab009/magma-config@1.1.6":
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/@lab009/magma-config/-/magma-config-1.1.6.tgz#67c06985ad04060a522727a0fb053738d24d88cb"
+"@lab009/magma-config@1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@lab009/magma-config/-/magma-config-1.1.7.tgz#7e2312e4a18b2a1cec7c40693de1f8a9501ae683"
   dependencies:
     "@lab009/magma-utils" "1.0.7"
     app-root-dir "1.0.2"
     dotenv "4.0.0"
-    fs-extra "4.0.0"
+    fs-extra "4.0.1"
     serialize-javascript "1.4.0"
 
 "@lab009/magma-utils@1.0.7":
@@ -219,9 +219,9 @@ fresh@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.0.tgz#f474ca5e6a9246d6fd8e0953cfa9b9c805afa78e"
 
-fs-extra@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.0.tgz#414fb4ca2d2170ba0014159d3a8aec3303418d9e"
+fs-extra@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.1.tgz#7fc0c6c8957f983f57f306a24e5b9ddd8d0dd880"
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^3.0.0"

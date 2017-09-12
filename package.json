@@ -14,10 +14,10 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-react": "7.0.1",
-    "lerna": "2.1.0",
+    "lerna": "2.1.2",
     "lerna-changelog": "0.6.0",
-    "prettier": "1.5.3",
-    "prettier-eslint": "6.4.2",
-    "prettier-eslint-cli": "4.2.1"
+    "prettier": "1.6.1",
+    "prettier-eslint": "8.0.0",
+    "prettier-eslint-cli": "4.3.2"
   }
 }
