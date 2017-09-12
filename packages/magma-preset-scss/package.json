@@ -1,6 +1,6 @@
 {
   "name": "@lab009/magma-preset-scss",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "SCSS preset for Magma.",
   "repository": "lab009/magma",
   "bugs": {
